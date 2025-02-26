@@ -1,18 +1,19 @@
 #pragma once
-#include <raylib.h>
+#include "raylib.h"
+#include <string>
 
-class Button
-{
+float findPerfectFontSize(Rectangle container, const char* text, int textPadding);
+
+class Button {
 public:
-    Button(const char* imagePath, Vector2 imagePosition, float scale);
-    ~Button();
-    void Draw();
-    bool IsPressed(Vector2 mousePos, bool mousePressed);
-
-
+	Button(int x, int y, int width, int height, Color col);
+	Button(const char* filePath, Vector2 position);
+	void Draw();
+	void Draw(const char* text, int textPadding);
+	bool isPressed(Vector2 mousePos, bool isMousePressed);
 private:
-    Texture2D texture;
-    Vector2 position;
-
-
+	Rectangle rec;
+	Color color;
+	Texture2D texture;
+	bool hasTexture;
 };
