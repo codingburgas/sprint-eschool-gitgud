@@ -1,0 +1,12 @@
+﻿  app.cpp
+  button.cpp
+C:\Users\Velislav\Desktop\Coding\Proektnata 9 klas\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(6,15): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Velislav\Desktop\Coding\Proektnata 9 klas\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(8,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\Velislav\Desktop\Coding\Proektnata 9 klas\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(9,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+C:\Users\Velislav\Desktop\Coding\Proektnata 9 klas\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(9,59): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Velislav\Desktop\Coding\Proektnata 9 klas\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(32,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\Velislav\Desktop\Coding\Proektnata 9 klas\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(32,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  main.cpp
+  menu.cpp
+  Generating Code...
+  gitGut.vcxproj -> C:\Users\Velislav\Desktop\Coding\Proektnata 9 klas\sprint-eschool-gitgud\gitGut\bin\Debug-windows-x86_64\gitGut\gitGut.exe
