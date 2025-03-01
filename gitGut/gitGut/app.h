@@ -5,6 +5,8 @@
 enum ProgramStates {
 	EXIT = 0,
 	MAIN_MENU,
+	SUBJECTS_MENU,
+
 };
 
 class App {

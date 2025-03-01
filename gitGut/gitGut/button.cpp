@@ -1,13 +1,14 @@
 #include "button.h"
 #include <iostream>
 
+// Returns the font size which is perfect to fit a particular text in a certain container.
 float findPerfectFontSize(Rectangle container, const char* text, int textPadding) {
 	float fontSize = container.width;
-	int textSize = MeasureTextEx(GetFontDefault(), text, fontSize, 5.f).x;
+	Vector2 textSize = MeasureTextEx(GetFontDefault(), text, fontSize, 5.f);
 
 	for (int i = fontSize; i >= 1; i--) {
-		textSize = MeasureTextEx(GetFontDefault(), text, i, 5.f).x;
-		if (textSize < container.width - textPadding) {
+		textSize = MeasureTextEx(GetFontDefault(), text, i, 5.f);
+		if (textSize.x < container.width - textPadding && textSize.y < container.height) {
 			return (float)i;
 		}
 
@@ -21,7 +22,7 @@ Button::Button(int x, int y, int width, int height, Color col) {
 	hasTexture = false;
 }
 
-Button::Button(const char* filePath, Vector2 position) {
+Button::Button(const char *filePath, Vector2 position) {
 	texture = LoadTexture(filePath);
 	rec = { (float)position.x, (float)position.y, (float)texture.width, (float)texture.height };
 	hasTexture = true;

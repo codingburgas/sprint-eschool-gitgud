@@ -26,5 +26,6 @@ void App::Update() {
 }
 
 void App::Draw() {
+	menu.Update(appState);
 	menu.Draw(appState);
 }
