@@ -1,8 +1,5 @@
-﻿  button.cpp
-C:\Users\MSI\Desktop\gitGud\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(9,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-C:\Users\MSI\Desktop\gitGud\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(10,52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-C:\Users\MSI\Desktop\gitGud\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(33,34): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-C:\Users\MSI\Desktop\gitGud\sprint-eschool-gitgud\gitGut\gitGut\button.cpp(33,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+﻿  app.cpp
+  main.cpp
   menu.cpp
   Generating Code...
-  gitGut.vcxproj -> C:\Users\MSI\Desktop\gitGud\sprint-eschool-gitgud\gitGut\bin\Debug-windows-x86_64\gitGut\gitGut.exe
+  gitGut.vcxproj -> C:\Users\Velislav\Desktop\Coding\Proektnata 9 klas\sprint-eschool-gitgud\gitGut\bin\Debug-windows-x86_64\gitGut\gitGut.exe

@@ -5,13 +5,10 @@ App::App() {
 }
 
 void App::Display() {
-
-	InitWindow(960, 500, "Title");
-
 	SetTargetFPS(60);
 
 	while (!WindowShouldClose()) {
-
+		Update();
 		BeginDrawing();
 		Draw();
 		EndDrawing();
@@ -22,10 +19,9 @@ void App::Display() {
 }
 
 void App::Update() {
-	
+	menu.Update(appState);
 }
 
 void App::Draw() {
-	menu.Update(appState);
 	menu.Draw(appState);
 }

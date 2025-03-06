@@ -25,6 +25,7 @@ Button::Button(int x, int y, int width, int height, Color col) {
 Button::Button(const char *filePath, Vector2 position) {
 	texture = LoadTexture(filePath);
 	rec = { (float)position.x, (float)position.y, (float)texture.width, (float)texture.height };
+	std::cout << rec.x << " " << rec.y << " " << rec.width << " " << rec.height << std::endl;
 	hasTexture = true;
 }
 
