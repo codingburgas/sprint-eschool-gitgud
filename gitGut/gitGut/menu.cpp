@@ -38,7 +38,7 @@ void Menu::Draw(int appState) {
 	case 1:
 		mainMenu::button1.Draw("Lessons", 10);
 		mainMenu::button2.Draw("Assigments", 10);
-		mainMenu::button3.Draw("Neshto", 10);
+		mainMenu::button3.Draw("Programa", 10);
 		break;
 	case 2:
 		DrawRectangleRec(subjectsMenu::subjectsBackground, { 52, 52, 52, 255 });
@@ -72,7 +72,7 @@ void Menu::Update(int &appState) {
 		break;
 	case 2:
 		if (subjectsMenu::subject1.isPressed(mousePos, isMousePressed))
-			std::cout << "MATHS" << std::endl;
+		
 		if (subjectsMenu::subject2.isPressed(mousePos, isMousePressed))
 			std::cout << "ENGLISH" << std::endl;
 		if (subjectsMenu::subject3.isPressed(mousePos, isMousePressed))
