@@ -2,13 +2,13 @@
 <p align = "center">
 <img src = "https://img.shields.io/badge/contributors-4-red"50/50>
 <img src = "https://img.shields.io/badge/hope_you_like_it-blue"50/50>
-<img src = "https://img.shields.io/badge/languages-4-green"50/50>
+<img src = "https://img.shields.io/badge/languages-1-green"50/50>
 <p align = "center">
  <img width="300" src="gitGut/gitGut/images/Logo.png" alt="Logo png">
 </p>
 
 ## 📋 Description
-### We are team GitGud. Our idea is to create an online school which will make learning easier and funnier! You can watch our video lessons which make learning a lot easier, then you can take our tests to see how much you have learned,and after all that you have assignments which can help you if you want more practice. 
+### <em>We are Team GitGud, and our mission is to create an interactive online school. Our platform is designed to make learning not only easier but also more enjoyable. Through a series of tests, learners can test their knowledge. Additionally, we provide assignments that offer further practice for those looking to deepen their understanding. To enhance the learning experience, we also offer 3D models, which help visualize complex concepts, making them easier to comprehend.</em>
 
 ## 🚀 Languages
 <br>
@@ -47,6 +47,6 @@
 | **Name** | **Role** | **Grade** |
 | :---:   | :---: | :---: |
 | Beloslava Ileva| Scrum trainer | 🟦 9G |
-| Ivayla Keserdjieva | Front - End Developer  | 🟦 9G |
-| Ivelin Metodiev | Back - End developer  | 🟩 9V |
-| Kateto | Design  | 🟥 9B |
+| Ivelin Metodiev | Front - End Developer  | 🟩 9V  |
+| Ivayla Keserdjieva | Back - End developer  | 🟦 9G|
+| Ekaterina Zelenskaya | Designer  | 🟥 9B |
