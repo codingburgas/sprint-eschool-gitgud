@@ -1,5 +1,4 @@
 #include "button.h"
-#include <iostream>
 
 // Returns the font size which is perfect to fit a particular text in a certain container.
 float findPerfectFontSize(Rectangle container, const char* text, int textPadding) {
@@ -15,33 +14,27 @@ float findPerfectFontSize(Rectangle container, const char* text, int textPadding
 	}
 	return 0.f;
 }
-
-Button::Button(int x, int y, int width, int height, Color col) {
-	rec = { (float)x, (float)y, (float)width, (float)height};
-	color = col;
-	hasTexture = false;
+Button::Button(const char* filePath, Vector2 position) :
+	texture(LoadTexture(filePath)),
+	rec{ (float)position.x, (float)position.y, (float)texture.width, (float)texture.height },
+	hasTexture(true)
+{
+	rec.width = texture.width;
+	rec.height = texture.height;
 }
+void Button::Draw(const char* text, int textPadding) const {
 
-Button::Button(const char *filePath, Vector2 position) {
-	texture = LoadTexture(filePath);
-	rec = { (float)position.x, (float)position.y, (float)texture.width, (float)texture.height };
-	std::cout << rec.x << " " << rec.y << " " << rec.width << " " << rec.height << std::endl;
-	hasTexture = true;
-}
-
-void Button::Draw() {
-	if (hasTexture)
-		DrawTexture(texture, rec.x, rec.y, WHITE);
-	else
-		DrawRectangleRec(rec, color);
-
-}
-
-void Button::Draw(const char* text, int textPadding) {
-	DrawRectangleRec(rec, color);
+	if (this->hasTexture)
+		DrawTexture(this->texture, this->rec.x, this->rec.y, WHITE);
+	else {
+		DrawRectangleRec(this->rec, this->color);
 	float fontSize = findPerfectFontSize(rec, text, textPadding);
 	Vector2 textSize = MeasureTextEx(GetFontDefault(), text, fontSize, 5.f);
-	DrawTextEx(GetFontDefault(), text, { rec.x + ((rec.width - textSize.x) / 2), rec.y + ((rec.height - textSize.y) / 2) }, fontSize, 5.f, WHITE);
+	Vector2 textPos = { this->rec.x + ((this->rec.width - textSize.x) / 2),
+						this->rec.y + ((this->rec.height - textSize.y) / 2) };
+
+	DrawTextEx(GetFontDefault(), text, textPos, fontSize, 5.f, WHITE);
+	}
 }
 
 

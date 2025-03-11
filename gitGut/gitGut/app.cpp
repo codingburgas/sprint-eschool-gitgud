@@ -1,9 +1,5 @@
 #include "app.h"
 
-App::App() {
-	appState = MAIN_MENU;
-}
-
 void App::Display() {
 	SetTargetFPS(60);
 
@@ -19,9 +15,9 @@ void App::Display() {
 }
 
 void App::Update() {
-	menu.Update(appState);
+	menu.Update(appState, subjectState);
 }
 
 void App::Draw() {
-	menu.Draw(appState);
+	menu.Draw(appState, subjectState);
 }

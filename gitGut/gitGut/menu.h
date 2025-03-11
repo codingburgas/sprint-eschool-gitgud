@@ -1,13 +1,17 @@
 #pragma once
 #include "raylib.h"
 #include "button.h"
+#include "utils.h"
+#include <iostream>
 
 class Menu {
 public:
-	Menu();
-	void Draw(int appState);
-	void Update(int &appState);
+	Menu() {};
+	void Draw(ProgramStates appState, SubjectStates subject);
+	void Update(ProgramStates &appState, SubjectStates &subject);
 private:
+
+	Button returnButton = Button(810, 450, 150, 50, { 30, 146, 235, 255 });
 
 	// main menu elements
 	Button button1 = Button("images/Lessons_button.png", { 25, 213 });

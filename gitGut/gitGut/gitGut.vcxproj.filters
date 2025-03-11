@@ -10,5 +10,6 @@
     <ClInclude Include="app.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="button.h" />
+    <ClInclude Include="utils.h" />
   </ItemGroup>
 </Project>

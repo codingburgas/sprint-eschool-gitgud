@@ -1,21 +1,17 @@
 #pragma once
 #include <raylib.h>
 #include "menu.h"
-
-enum ProgramStates {
-	EXIT = 0,
-	MAIN_MENU,
-	SUBJECTS_MENU,
-
-};
+#include "utils.h"
 
 class App {
 public:
-	App();
+	App() : appState(MAIN_MENU),
+			subjectState(NONE) {}
 	void Display();
 	void Update();
 	void Draw();
 private:
-	int appState;
+	ProgramStates appState;
+	SubjectStates subjectState;
 	Menu menu;
 };

@@ -1,20 +1,14 @@
 #include "menu.h"
-#include <iostream>
-
-
-
-Menu::Menu() {
-}
 
 // Visualizes the main menu elements
-void Menu::Draw(int appState) {
+void Menu::Draw(ProgramStates appState, SubjectStates subject) {
 	switch (appState) {
-	case 1:
+	case MAIN_MENU:
 		button1.Draw();
 		button2.Draw();
 		button3.Draw();
 		break;
-	case 2:
+	case SUBJECTS_MENU:
 		DrawRectangleRec(subjectsBackground, { 52, 52, 52, 255 });
 		DrawRectangleLinesEx(subjectsBackground, 3, BLACK);
 		subject1.Draw();
@@ -30,34 +24,62 @@ void Menu::Draw(int appState) {
 		option3.Draw("Homework", 60);
 		option4.Draw("Tests", 100);
 
+		returnButton.Draw("Back", 1);
+		switch (subject) {
+		case MATHS:
+			DrawText("Mathematics", 407, 30, 50, WHITE);
+			break;
+		case ENGLISH:
+			DrawText("English", 457, 30, 50, WHITE);
+			break;
+		case BIOLOGY:
+			DrawText("Biology", 457, 30, 50, WHITE);
+			break;
+		case CHEMISTRY:
+			DrawText("Chemistry", 437, 30, 50, WHITE);
+			break;
+		case PHYSICS:
+			DrawText("Physics", 457, 30, 50, WHITE);
+			break;
+		case GEOGRAPHY:
+			DrawText("Geography", 437, 30, 50, WHITE);
+			break;
+		}
 		break;
 	}
 }
 
 // Updates the app state when a certain action happens (e.g. When a button is pressed)
-void Menu::Update(int &appState) {
+void Menu::Update(ProgramStates &appState, SubjectStates &subject) {
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
 
 	switch (appState) {
-	case 1:
+	case MAIN_MENU:
 		if (button1.isPressed(mousePos, isMousePressed))
-			appState = 2;
+			appState = SUBJECTS_MENU;
+		if (button2.isPressed(mousePos, isMousePressed))
+			appState = SUBJECTS_MENU;
 		break;
-	case 2:
+	case SUBJECTS_MENU:
 		if (subject1.isPressed(mousePos, isMousePressed))
-		
-		if (subject2.isPressed(mousePos, isMousePressed))
-			std::cout << "ENGLISH" << std::endl;
-		if (subject3.isPressed(mousePos, isMousePressed))
-			std::cout << "BIOLOGY" << std::endl;
-		if (subject4.isPressed(mousePos, isMousePressed))
-			std::cout << "CHEMISTRY" << std::endl;
-		if (subject5.isPressed(mousePos, isMousePressed))
-			std::cout << "PHYSICS" << std::endl;
-		if (subject6.isPressed(mousePos, isMousePressed))
-			std::cout << "GEOGRAPHY" << std::endl;
-		break;
+			subject = MATHS;
+		else if (subject2.isPressed(mousePos, isMousePressed))
+			subject = ENGLISH;
+		else if (subject3.isPressed(mousePos, isMousePressed))
+			subject = BIOLOGY;
+		else if (subject4.isPressed(mousePos, isMousePressed)) 
+			subject = CHEMISTRY;
+		else if (subject5.isPressed(mousePos, isMousePressed))
+			subject = PHYSICS;
+		else if (subject6.isPressed(mousePos, isMousePressed))
+			subject = GEOGRAPHY;
+		else if (returnButton.isPressed(mousePos, isMousePressed)) {
+			appState = MAIN_MENU;
+			subject = NONE;
+		}
+		else if (isMousePressed)
+			subject = NONE;
 	}
 }
 
