@@ -46,7 +46,7 @@
 
 | **Name** | **Role** | **Grade** |
 | :---:   | :---: | :---: |
-| Beloslava Ileva| Scrum trainer | 🟦 9G |
+| Beloslava Ileva | Scrum trainer | 🟦 9G |
 | Ivelin Metodiev | Front - End Developer  | 🟩 9V  |
 | Ivayla Keserdjieva | Back - End developer  | 🟦 9G|
-| Ekaterina Zelenskaya | Designer  | 🟥 9B |
+| Ekaterina Zalinskaya | Designer  | 🟥 9B |
