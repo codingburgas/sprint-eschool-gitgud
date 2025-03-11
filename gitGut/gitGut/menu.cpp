@@ -1,31 +1,35 @@
 #include "menu.h"
 
 // Visualizes the main menu elements
-void Menu::Draw(ProgramStates appState, SubjectStates subject) {
+void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, LessonState lessonState) {
+
 	switch (appState) {
 	case MAIN_MENU:
-		button1.Draw();
-		button2.Draw();
-		button3.Draw();
+		for (const Button& button : mainMenuButtons) {
+			button.Draw();
+		}
 		break;
 	case SUBJECTS_MENU:
 		DrawRectangleRec(subjectsBackground, { 52, 52, 52, 255 });
 		DrawRectangleLinesEx(subjectsBackground, 3, BLACK);
-		subject1.Draw();
-		subject2.Draw();
-		subject3.Draw();
-		subject4.Draw();
-		subject5.Draw();
-		subject6.Draw();
+
+		for (const Button& button : subjectMenuButtons) {
+			button.Draw();
+		}
 
 		DrawRectangleLinesEx(subjectTitle, 3, BLACK);
-		option1.Draw("Lessons", 60);
-		option2.Draw("Exercises", 60);
-		option3.Draw("Homework", 60);
-		option4.Draw("Tests", 100);
+
+		if (subject != NO_SUBJECT) {
+			for (size_t i = 0; i < optionsButtons.size(); i++) {
+				optionsButtons[i].Draw(optionsTitles[i], optionsPaddings[i]);
+			}
+		}
 
 		returnButton.Draw("Back", 1);
 		switch (subject) {
+		case NO_SUBJECT:
+			DrawText("Select a subject", 367, 30, 50, WHITE);
+			break;
 		case MATHS:
 			DrawText("Mathematics", 407, 30, 50, WHITE);
 			break;
@@ -50,36 +54,50 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject) {
 }
 
 // Updates the app state when a certain action happens (e.g. When a button is pressed)
-void Menu::Update(ProgramStates &appState, SubjectStates &subject) {
+void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningStates &learningState, LessonState &lessonState) {
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
 
 	switch (appState) {
 	case MAIN_MENU:
-		if (button1.isPressed(mousePos, isMousePressed))
+		if (mainMenuButtons[0].isPressed(mousePos, isMousePressed))
 			appState = SUBJECTS_MENU;
-		if (button2.isPressed(mousePos, isMousePressed))
-			appState = SUBJECTS_MENU;
+		if (mainMenuButtons[1].isPressed(mousePos, isMousePressed))
+			appState = ASSIGMENTS;
+		if (mainMenuButtons[2].isPressed(mousePos, isMousePressed))
+			appState = SCHEDULE;
 		break;
 	case SUBJECTS_MENU:
-		if (subject1.isPressed(mousePos, isMousePressed))
+		if (subject != NO_SUBJECT) {
+			if (optionsButtons[0].isPressed(mousePos, isMousePressed))
+				learningState = LESSONS;
+			else if (optionsButtons[1].isPressed(mousePos, isMousePressed))
+				learningState = EXERCISES;
+			else if (optionsButtons[2].isPressed(mousePos, isMousePressed))
+				learningState = HOMEWORK;
+			else if (optionsButtons[3].isPressed(mousePos, isMousePressed))
+				learningState = TESTS;
+		}
+
+		if (subjectMenuButtons[0].isPressed(mousePos, isMousePressed))
 			subject = MATHS;
-		else if (subject2.isPressed(mousePos, isMousePressed))
+		else if (subjectMenuButtons[1].isPressed(mousePos, isMousePressed))
 			subject = ENGLISH;
-		else if (subject3.isPressed(mousePos, isMousePressed))
+		else if (subjectMenuButtons[2].isPressed(mousePos, isMousePressed))
 			subject = BIOLOGY;
-		else if (subject4.isPressed(mousePos, isMousePressed)) 
+		else if (subjectMenuButtons[3].isPressed(mousePos, isMousePressed))
 			subject = CHEMISTRY;
-		else if (subject5.isPressed(mousePos, isMousePressed))
+		else if (subjectMenuButtons[4].isPressed(mousePos, isMousePressed))
 			subject = PHYSICS;
-		else if (subject6.isPressed(mousePos, isMousePressed))
+		else if (subjectMenuButtons[5].isPressed(mousePos, isMousePressed))
 			subject = GEOGRAPHY;
 		else if (returnButton.isPressed(mousePos, isMousePressed)) {
 			appState = MAIN_MENU;
-			subject = NONE;
+			subject = NO_SUBJECT;
 		}
 		else if (isMousePressed)
-			subject = NONE;
+			subject = NO_SUBJECT;
+		break;
 	}
 }
 

@@ -15,9 +15,9 @@ void App::Display() {
 }
 
 void App::Update() {
-	menu.Update(appState, subjectState);
+	menu.Update(appState, subjectState, learningState, lessonState);
 }
 
 void App::Draw() {
-	menu.Draw(appState, subjectState);
+	menu.Draw(appState, subjectState, learningState, lessonState);
 }
