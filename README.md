@@ -21,6 +21,7 @@
 <div align="left">
     <img height="58" width="58" src="gitGut/gitGut/images/canva.png"/>
     <img height="58" width="58" src="gitGut/gitGut/images/figma.png"/>
+ <img height = "58" width = "58" src="gitGut/gitGut/images/blender logo.png"/>
 </div>
 
 ## 📞Collaborative services
@@ -30,23 +31,34 @@
   <img height="58" width="58" src="gitGut/gitGut/images/teams.png"/>
 </div>
 
+## Installation
+1. Clone the repo.
+```
+git clone https://github.com/codingburgas/sprint-eschool-gitgud.git
+```
+2. Open the solution file with Visual Studio
+3. Compile the project by using CTRL + F5
 ## 📁 Documents
+
 ### Documentation
-- [Documentation]()
+- [Documentation](gitGut/docs/documentation.docx)
 
 
 ### Presenting
-- [Presentation]()
+- [Presentation](gitGut/docs/presentation.pptx)
 
 
 ### Design
-- [Design]()
+- [Design](gitGut/docs/design.png)
+
+### QA
+- [QA Documentation]()
 
 ## 👥 Team
 
 | **Name** | **Role** | **Grade** |
 | :---:   | :---: | :---: |
-| Beloslava Ileva | Scrum trainer | 🟦 9G |
+| Beloslava Ileva | Scrum trainer | 🟥 9B |
 | Ivelin Metodiev | Front - End Developer  | 🟩 9V  |
-| Ivayla Keserdjieva | Back - End developer  | 🟦 9G|
+| Ivayla Keserdzhieva | Back - End developer  | 🟦 9G|
 | Ekaterina Zalinskaya | Designer  | 🟥 9B |
