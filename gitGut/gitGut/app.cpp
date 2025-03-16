@@ -1,5 +1,6 @@
 #include "app.h"
 
+
 App::App() {
 	appState = MAIN_MENU;
 }
@@ -13,15 +14,16 @@ void App::Display() {
 		Draw();
 		EndDrawing();
 
-		ClearBackground(DARKGRAY);
+	DrawTexture(menu.getBackground(), 0, 0, WHITE);
+		
 	}
 	CloseWindow();
 }
 
 void App::Update() {
-	menu.Update(appState);
+	menu.Update(appState, subjects);
 }
 
 void App::Draw() {
-	menu.Draw(appState);
+	menu.Draw(appState, subjects);
 }

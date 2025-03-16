@@ -5,8 +5,20 @@
 enum ProgramStates {
 	EXIT = 0,
 	MAIN_MENU,
-	SUBJECTS_MENU,
+	SUBJECTS_MENU
+	
 
+
+};
+enum subjects
+{
+	MATHS,
+	ENGLISH,
+	BIOLOGY,
+	PHYSICS,
+	CHEMISTRY,
+	GEOGRAPHY
+	
 };
 
 class App {
@@ -17,5 +29,7 @@ public:
 	void Draw();
 private:
 	int appState;
+	int subjects;
 	Menu menu;
+	
 };

@@ -5,10 +5,12 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="button.cpp" />
+    <ClCompile Include="english_homework.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="button.h" />
+    <ClInclude Include="english_homework.h" />
   </ItemGroup>
 </Project>
