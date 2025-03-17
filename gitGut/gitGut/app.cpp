@@ -9,7 +9,7 @@ void App::Display() {
 		Draw();
 		EndDrawing();
 
-		ClearBackground(DARKGRAY);
+		DrawTexture(menu.getBackground(appState, subjectState), 0, 0 ,WHITE);
 	}
 	CloseWindow();
 }

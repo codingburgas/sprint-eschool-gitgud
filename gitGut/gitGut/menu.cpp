@@ -28,25 +28,25 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates le
 		returnButton.Draw("Back", 1);
 		switch (subject) {
 		case NO_SUBJECT:
-			DrawText("Select a subject", 367, 30, 50, WHITE);
+			DrawText("Select a subject", 367, 30, 50, BLACK);
 			break;
 		case MATHS:
-			DrawText("Mathematics", 407, 30, 50, WHITE);
+			DrawText("Mathematics", 407, 30, 50, BLACK);
 			break;
 		case ENGLISH:
-			DrawText("English", 457, 30, 50, WHITE);
+			DrawText("English", 457, 30, 50, BLACK);
 			break;
 		case BIOLOGY:
-			DrawText("Biology", 457, 30, 50, WHITE);
+			DrawText("Biology", 457, 30, 50, BLACK);
 			break;
 		case CHEMISTRY:
-			DrawText("Chemistry", 437, 30, 50, WHITE);
+			DrawText("Chemistry", 437, 30, 50, BLACK);
 			break;
 		case PHYSICS:
-			DrawText("Physics", 457, 30, 50, WHITE);
+			DrawText("Physics", 457, 30, 50, BLACK);
 			break;
 		case GEOGRAPHY:
-			DrawText("Geography", 437, 30, 50, WHITE);
+			DrawText("Geography", 437, 30, 50, BLACK);
 			break;
 		}
 		break;
@@ -99,5 +99,33 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 			subject = NO_SUBJECT;
 		break;
 	}
+}
+
+Texture2D Menu::getBackground(int appState, int Subject)
+{
+	switch (appState)
+	{
+	case 1: return menu_background; 
+		break;
+	case 2: 
+		switch (Subject)
+		{
+		case 1: return maths_background;
+			break;
+		case 2: return english_background;
+			break;
+		case 3: return biology_background;
+			break;
+		case 4: return physics_background;
+			break;
+		case 5: return chemistry_background;
+			break;
+		case 6: return geography_background;
+			break;
+		default: return menu_background;
+		}
+	default: return menu_background;
+	}
+	
 }
 

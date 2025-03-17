@@ -10,6 +10,7 @@ public:
 	Menu() {};
 	void Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, LessonState lessonState);
 	void Update(ProgramStates& appState, SubjectStates& subject, LearningStates& learningState, LessonState& lessonState);
+	Texture2D getBackground(int appState, int Subject);
 private:
 
 	Button returnButton = Button(810, 450, 150, 50, { 30, 146, 235, 255 });
@@ -52,4 +53,14 @@ private:
 	Button(230, 310, 300, 75, { 30, 146, 235, 255 }),
 	Button(230, 405, 300, 75, { 30, 146, 235, 255 })
 	};
+
+
+	Texture2D menu_background = LoadTexture("images/menu_background.png");
+	Texture2D maths_background = LoadTexture("images/maths_background.png");
+	Texture2D english_background = LoadTexture("images/english_background.png");
+	Texture2D biology_background = LoadTexture("images/biology_background.png");
+	Texture2D physics_background = LoadTexture("images/physics_background.png");
+	Texture2D chemistry_background = LoadTexture("images/chemistry_background.png");
+	Texture2D geography_background = LoadTexture("images/geography_background.png");
+
 };
