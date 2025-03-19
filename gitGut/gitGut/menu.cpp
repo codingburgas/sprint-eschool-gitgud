@@ -101,31 +101,29 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 	}
 }
 
-Texture2D Menu::getBackground(int appState, int Subject)
+Texture2D Menu::getBackground(ProgramStates appState, SubjectStates Subject)
 {
 	switch (appState)
 	{
-	case 1: return menu_background; 
+	case MAIN_MENU: return menu_background; 
 		break;
-	case 2: 
+	case SUBJECTS_MENU: 
 		switch (Subject)
 		{
-		case 1: return maths_background;
+		case MATHS: return maths_background;
 			break;
-		case 2: return english_background;
+		case ENGLISH: return english_background;
 			break;
-		case 3: return biology_background;
+		case BIOLOGY: return biology_background;
 			break;
-		case 4: return physics_background;
+		case CHEMISTRY: return chemistry_background;
 			break;
-		case 5: return chemistry_background;
+		case PHYSICS: return physics_background;
 			break;
-		case 6: return geography_background;
+		case GEOGRAPHY: return geography_background;
 			break;
-		default: return menu_background;
 		}
-	default: return menu_background;
 	}
-	
+	return menu_background;
 }
 

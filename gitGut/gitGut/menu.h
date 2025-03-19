@@ -10,7 +10,7 @@ public:
 	Menu() {};
 	void Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, LessonState lessonState);
 	void Update(ProgramStates& appState, SubjectStates& subject, LearningStates& learningState, LessonState& lessonState);
-	Texture2D getBackground(int appState, int Subject);
+	Texture2D getBackground(ProgramStates appState, SubjectStates Subject);
 private:
 
 	Button returnButton = Button(810, 450, 150, 50, { 30, 146, 235, 255 });

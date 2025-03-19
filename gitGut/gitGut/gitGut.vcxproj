@@ -95,12 +95,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="3DViewport.cpp" />
     <ClCompile Include="app.cpp" />
     <ClCompile Include="button.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="3DViewport.h" />
     <ClInclude Include="app.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="menu.h" />

@@ -5,11 +5,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="menu.cpp" />
     <ClCompile Include="button.cpp" />
+    <ClCompile Include="3DViewport.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="utils.h" />
+    <ClInclude Include="3DViewport.h" />
   </ItemGroup>
 </Project>
