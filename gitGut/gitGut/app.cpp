@@ -4,12 +4,12 @@ void App::Display() {
 	SetTargetFPS(60);
 
 	while (!WindowShouldClose()) {
-		Update();
-
-		if (is3dOn) {
+			if (is3dOn) {
 			V3D.Display(subjectState, lessonState, is3dOn);
 			continue;
 		}
+
+		Update();
 
 		BeginDrawing();
 		Draw();
