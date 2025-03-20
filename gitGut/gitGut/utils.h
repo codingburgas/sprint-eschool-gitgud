@@ -10,11 +10,11 @@ enum ProgramStates {
 
 enum SubjectStates {
 	NO_SUBJECT = 0,
-	MATHS,
-	ENGLISH,
 	BIOLOGY,
 	CHEMISTRY,
 	PHYSICS,
+	MATHS,
+	ENGLISH,
 	GEOGRAPHY
 };
 
@@ -27,6 +27,15 @@ enum LearningStates {
 };
 
 enum LessonState {
+	LESSON_0,
 	LESSON_1,
 	LESSON_2
+};
+
+enum cameraFrames3D {
+	FRAME_0,
+	FRAME_1,
+	FRAME_3,
+	FRAME_4,
+	FRAME_5
 };

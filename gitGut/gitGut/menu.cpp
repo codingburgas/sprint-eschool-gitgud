@@ -54,7 +54,7 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates le
 }
 
 // Updates the app state when a certain action happens (e.g. When a button is pressed)
-void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningStates &learningState, LessonState &lessonState) {
+void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningStates &learningState, LessonState &lessonState, bool is3dOn) {
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
 
@@ -95,8 +95,17 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 			appState = MAIN_MENU;
 			subject = NO_SUBJECT;
 		}
-		else if (isMousePressed)
-			subject = NO_SUBJECT;
+
+		switch (subject) {
+		case MATHS:
+			break;
+		case ENGLISH:
+			break;
+		case BIOLOGY:
+			if (optionsButtons[0].isPressed(mousePos, isMousePressed))
+				is3dOn = true;
+			break;
+		}
 		break;
 	}
 }

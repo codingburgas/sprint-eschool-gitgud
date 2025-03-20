@@ -5,6 +5,12 @@ void App::Display() {
 
 	while (!WindowShouldClose()) {
 		Update();
+
+		if (is3dOn) {
+			V3D.Display(subjectState, lessonState, is3dOn);
+			continue;
+		}
+
 		BeginDrawing();
 		Draw();
 		EndDrawing();
@@ -15,7 +21,7 @@ void App::Display() {
 }
 
 void App::Update() {
-	menu.Update(appState, subjectState, learningState, lessonState);
+	menu.Update(appState, subjectState, learningState, lessonState, is3dOn);
 }
 
 void App::Draw() {
