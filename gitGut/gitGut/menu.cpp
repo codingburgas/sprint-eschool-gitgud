@@ -1,7 +1,7 @@
 #include "menu.h"
 
 // Visualizes the main menu elements
-void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, LessonState lessonState) {
+void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, LessonState lessonState, int day) {
 
 	switch (appState) {
 	case MAIN_MENU:
@@ -50,14 +50,57 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates le
 			break;
 		}
 		break;
+	case SCHEDULE:
+		
+		switch (day)
+		{
+		case MONDAY: DrawTexture(mondaySchedule, 0, 0, WHITE);
+			break;
+		case TUESDAY: DrawTexture(tuesdaySchedule, 0, 0, WHITE);
+			break;
+		case WEDNESDAY: DrawTexture(wednesdaySchedule, 0, 0, WHITE);
+			break;
+		case THURSDAY: DrawTexture(thursdaySchedule, 0, 0, WHITE);
+			break;
+		case FRIDAY: DrawTexture(fridaySchedule, 0, 0, WHITE);
+			break;
+		case SATURDAY: DrawTexture(saturdaySchedule, 0, 0, WHITE);
+			break;
+		case SUNDAY: DrawTexture(sundaySchedule, 0, 0, WHITE);
+			break;
+			default: DrawTexture(mondaySchedule, 0, 0, WHITE);
+				break;
+		}
+		nextButton.Draw();
+		backButton.Draw();
+
+
 	}
+
 }
 
 // Updates the app state when a certain action happens (e.g. When a button is pressed)
-void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningStates &learningState, LessonState &lessonState, bool &is3dOn) {
+void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningStates &learningState, LessonState &lessonState, bool &is3dOn, int& day) {
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
-
+	if (nextButton.isPressed(mousePos, isMousePressed))
+	{
+		day++;
+		if (day > 7)
+		{
+			day = 0;
+		}
+	}
+	else if (backButton.isPressed(mousePos, isMousePressed))
+	{
+		day--;
+		if (day <= 0)
+		{
+			day = 7;
+		}
+	}
+	
+	std::cout << day<< std::endl;
 	switch (appState) {
 	case MAIN_MENU:
 		if (mainMenuButtons[0].isPressed(mousePos, isMousePressed))
@@ -66,6 +109,8 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 			appState = ASSIGMENTS;
 		if (mainMenuButtons[2].isPressed(mousePos, isMousePressed))
 			appState = SCHEDULE;
+		
+		
 		break;
 	case SUBJECTS_MENU:
 		if (subject != NO_SUBJECT) {
@@ -112,29 +157,53 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 	}
 }
 
-Texture2D Menu::getBackground(ProgramStates appState, SubjectStates Subject)
+Texture2D Menu::getBackground(ProgramStates appState, SubjectStates Subject, int& day)
 {
+	Vector2 mousePos = GetMousePosition();
+	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
+
 	switch (appState)
 	{
-	case MAIN_MENU: return menu_background; 
+	case MAIN_MENU: return menuBackground; 
 		break;
 	case SUBJECTS_MENU: 
 		switch (Subject)
 		{
-		case MATHS: return maths_background;
+		case MATHS: return mathsBackground;
 			break;
-		case ENGLISH: return english_background;
+		case ENGLISH: return englishBackground;
 			break;
-		case BIOLOGY: return biology_background;
+		case BIOLOGY: return biologyBackground;
 			break;
-		case CHEMISTRY: return chemistry_background;
+		case CHEMISTRY: return chemistryBackground;
 			break;
-		case PHYSICS: return physics_background;
+		case PHYSICS: return physicsBackground;
 			break;
-		case GEOGRAPHY: return geography_background;
+		case GEOGRAPHY: return geographyBackground;
 			break;
 		}
+	case SCHEDULE: 
+
+		switch (day)
+		{
+		case MONDAY: return mondaySchedule;
+			break;
+		case TUESDAY: return tuesdaySchedule;
+			break;
+		case WEDNESDAY: return wednesdaySchedule;
+			break;
+		case THURSDAY: return thursdaySchedule;
+			break;
+		case FRIDAY: return fridaySchedule;
+			break;
+		case SATURDAY: return saturdaySchedule;
+			break;
+		case SUNDAY: return sundaySchedule;
+			break;
+
+	
+		}
 	}
-	return menu_background;
+	return menuBackground;
 }
 

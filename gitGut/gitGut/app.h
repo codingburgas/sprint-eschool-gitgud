@@ -10,7 +10,8 @@ public:
 			subjectState(NO_SUBJECT),
 			learningState(NO_LEARN),
 			lessonState(LESSON_1),
-			is3dOn(false)
+			is3dOn(false),
+			day(MONDAY)
 	{}
 	void Display();
 	void Update();
@@ -20,6 +21,7 @@ private:
 	SubjectStates subjectState;
 	LearningStates learningState;
 	LessonState lessonState;
+	int day;
 	bool is3dOn;
 	Menu menu;
 	ThreeDimensionalViewport V3D;

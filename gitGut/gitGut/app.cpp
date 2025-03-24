@@ -15,15 +15,15 @@ void App::Display() {
 		Draw();
 		EndDrawing();
 
-		DrawTexture(menu.getBackground(appState, subjectState), 0, 0 ,WHITE);
+		DrawTexture(menu.getBackground(appState, subjectState, day), 0, 0 ,WHITE);
 	}
 	CloseWindow();
 }
 
 void App::Update() {
-	menu.Update(appState, subjectState, learningState, lessonState, is3dOn);
+	menu.Update(appState, subjectState, learningState, lessonState, is3dOn, day);
 }
 
 void App::Draw() {
-	menu.Draw(appState, subjectState, learningState, lessonState);
+	menu.Draw(appState, subjectState, learningState, lessonState, day);
 }

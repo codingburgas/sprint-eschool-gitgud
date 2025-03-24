@@ -39,3 +39,14 @@ enum cameraFrames3D {
 	FRAME_4,
 	FRAME_5
 };
+
+enum ScheduleState
+{
+	MONDAY,
+	TUESDAY,
+	WEDNESDAY,
+	THURSDAY,
+	FRIDAY,
+	SATURDAY,
+	SUNDAY
+};
