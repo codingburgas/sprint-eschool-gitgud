@@ -11,7 +11,7 @@ public:
 	Menu() {};
 	void Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, LessonState lessonState, int day);
 	void Update(ProgramStates& appState, SubjectStates& subject, LearningStates& learningState, LessonState& lessonState, bool &is3dOn, int& day);
-	Texture2D getBackground(ProgramStates appState, SubjectStates Subject, int& day);
+	Texture2D getBackground(ProgramStates& appState, SubjectStates& Subject, int& day);
 private:
 
 	Button returnButton = Button(810, 450, 150, 50, { 30, 146, 235, 255 });
@@ -75,6 +75,6 @@ private:
 	Button nextButton =Button("images/next_button.png", {810, 0});
 	Button backButton = Button("images/back_button.png", {0, 0});
 
-	
+	Button scheduleReturnButton = Button(810, 450, 150, 50, {0,0,255,255});
 
 };

@@ -1,2 +1,5 @@
-﻿  menu.cpp
-  gitGut.vcxproj -> C:\Users\MSI\Desktop\gitgud\sprint-eschool-gitgud\gitGut\bin\Debug-windows-x86_64\gitGut\gitGut.exe
+﻿  app.cpp
+  main.cpp
+  menu.cpp
+  Создание кода...
+  gitGut.vcxproj -> C:\sprint-eschool-gitgud\gitGut\bin\Debug-windows-x86_64\gitGut\gitGut.exe

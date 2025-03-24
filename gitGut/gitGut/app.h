@@ -11,7 +11,7 @@ public:
 			learningState(NO_LEARN),
 			lessonState(LESSON_1),
 			is3dOn(false),
-			day(MONDAY)
+			day(NO_SCHEDULE)
 	{}
 	void Display();
 	void Update();

@@ -48,5 +48,6 @@ enum ScheduleState
 	THURSDAY,
 	FRIDAY,
 	SATURDAY,
-	SUNDAY
+	SUNDAY,
+	NO_SCHEDULE
 };

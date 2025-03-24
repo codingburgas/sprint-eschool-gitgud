@@ -73,6 +73,8 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates le
 		}
 		nextButton.Draw();
 		backButton.Draw();
+		scheduleReturnButton.Draw("Main menu", 10);
+
 
 
 	}
@@ -86,7 +88,7 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 	if (nextButton.isPressed(mousePos, isMousePressed))
 	{
 		day++;
-		if (day > 7)
+		if (day >= 7)
 		{
 			day = 0;
 		}
@@ -94,9 +96,9 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 	else if (backButton.isPressed(mousePos, isMousePressed))
 	{
 		day--;
-		if (day <= 0)
+		if (day < 0)
 		{
-			day = 7;
+			day = 6;
 		}
 	}
 	
@@ -110,8 +112,8 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 		if (mainMenuButtons[2].isPressed(mousePos, isMousePressed))
 			appState = SCHEDULE;
 		
-		
 		break;
+
 	case SUBJECTS_MENU:
 		if (subject != NO_SUBJECT) {
 			if (optionsButtons[0].isPressed(mousePos, isMousePressed))
@@ -157,7 +159,7 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 	}
 }
 
-Texture2D Menu::getBackground(ProgramStates appState, SubjectStates Subject, int& day)
+Texture2D Menu::getBackground(ProgramStates& appState, SubjectStates& Subject, int& day)
 {
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
@@ -183,7 +185,10 @@ Texture2D Menu::getBackground(ProgramStates appState, SubjectStates Subject, int
 			break;
 		}
 	case SCHEDULE: 
-
+		if (scheduleReturnButton.isPressed(mousePos, isMousePressed)) {
+			day = NO_SCHEDULE;
+			appState = MAIN_MENU;
+		}
 		switch (day)
 		{
 		case MONDAY: return mondaySchedule;
