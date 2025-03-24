@@ -36,9 +36,9 @@ private:
 class ThreeDimensionalViewport {
 public:
 	ThreeDimensionalViewport();
-	void Display(SubjectStates subjectState, LessonState lessonState, bool& is3dOn);
+	void Display(SubjectStates subjectState, bool lessonState, bool& is3dOn);
 	void Update(bool& is3dOn);
-	void Draw(SubjectStates subjectState, LessonState lessonState);
+	void Draw(SubjectStates subjectState, bool lessonState);
 	void addScene(const char* modelPath);
 	void initializeScenes();
 private:

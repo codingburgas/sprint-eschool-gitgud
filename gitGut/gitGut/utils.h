@@ -26,11 +26,7 @@ enum LearningStates {
 	TESTS,
 };
 
-enum LessonState {
-	LESSON_0,
-	LESSON_1,
-	LESSON_2
-};
+
 
 enum cameraFrames3D {
 	FRAME_0,

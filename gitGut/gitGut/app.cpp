@@ -4,6 +4,7 @@ void App::Display() {
 	SetTargetFPS(60);
 
 	while (!WindowShouldClose()) {
+	
 			if (is3dOn) {
 			V3D.Display(subjectState, lessonState, is3dOn);
 			continue;
@@ -13,6 +14,11 @@ void App::Display() {
 
 		BeginDrawing();
 		Draw();
+		if (lessonState == true)
+		{
+			biologyLesson.Display(lessonState, is3dOn);
+
+		}
 		EndDrawing();
 
 		DrawTexture(menu.getBackground(appState, subjectState, day), 0, 0 ,WHITE);
@@ -26,4 +32,9 @@ void App::Update() {
 
 void App::Draw() {
 	menu.Draw(appState, subjectState, learningState, lessonState, day);
+}
+
+void App::DrawLesson(SubjectStates subjectState)
+{
+	//switch for different lessons
 }

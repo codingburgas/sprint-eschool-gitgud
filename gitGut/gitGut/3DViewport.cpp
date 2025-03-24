@@ -5,7 +5,7 @@ ThreeDimensionalViewport::ThreeDimensionalViewport() {
 	initializeScenes();
 }
 
-void ThreeDimensionalViewport::Display(SubjectStates subjectState, LessonState lessonState, bool& is3dOn) {
+void ThreeDimensionalViewport::Display(SubjectStates subjectState, bool lessonState, bool& is3dOn) {
 	Update(is3dOn);
 	Draw(subjectState, lessonState);
 }
@@ -23,7 +23,7 @@ void ThreeDimensionalViewport::Update(bool& is3dOn) {
 	scenes[0].switchCameraFrames(scenes[0].getCameraFrame());
 }
 
-void ThreeDimensionalViewport::Draw(SubjectStates subjectState, LessonState lessonState) {
+void ThreeDimensionalViewport::Draw(SubjectStates subjectState, bool lessonState) {
 	ClearBackground(RAYWHITE);
 	BeginDrawing();
 
@@ -39,11 +39,11 @@ void ThreeDimensionalViewport::Draw(SubjectStates subjectState, LessonState less
 	switch (subjectState) {
 	case BIOLOGY:
 		switch (lessonState) {
-		case LESSON_1:
+		case true:
 			scenes[0].drawModel();
 			break;
-		case LESSON_2:
-			break;
+		
+			
 		}
 		break;
 	case CHEMISTRY:
