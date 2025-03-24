@@ -23,12 +23,13 @@ public:
 	void switchCameraFrames(int cameraCurrentState);
 	void setNextCameraState();
 	int getCameraFrame();
-	Camera getCamera();
+	Camera& getCamera();
 	Model getModel();
 private:
 	Camera camera; 
 	Model model;
 	int cameraFrame;
+	bool isSliced;
 	std::vector<cameraState> cameraStates;
 };
 

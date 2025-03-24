@@ -1,7 +1,7 @@
 #include "3DViewport.h"
 
 ThreeDimensionalViewport::ThreeDimensionalViewport() {
-	addScene("3d models/heart.glb");
+	addScene("3d_models/heart.glb");
 	initializeScenes();
 }
 
@@ -26,6 +26,8 @@ void ThreeDimensionalViewport::Update(bool& is3dOn) {
 void ThreeDimensionalViewport::Draw(SubjectStates subjectState, LessonState lessonState) {
 	ClearBackground(RAYWHITE);
 	BeginDrawing();
+
+	UpdateCamera(&scenes[0].getCamera(), CAMERA_FREE);
 
 	exitButton.Draw("Exit", 10);
 	prevFrameButton.Draw("<");
@@ -59,7 +61,7 @@ void ThreeDimensionalViewport::addScene(const char* modelPath) {
 }
 
 void ThreeDimensionalViewport::initializeScenes() {
-	scenes[0].addCameraState({ 5.f, 5.f, 5.f }, { 0.f, 0.f, 0.f });
+	scenes[0].addCameraState({ 15.f, 5.f, 0.f }, { 0.f, 0.f, 0.f });
 	scenes[0].addCameraState({ 5.f, 15.f, 5.f }, { 0.f, 0.f, 0.f });
 }
 
@@ -72,6 +74,7 @@ Scene3D::Scene3D(const char* modelPath = "") {
 	camera.target = { 0.f, 4.f, 0.f };
 	camera.up = { 0.f, 1.f, 0.f };
 	cameraFrame = FRAME_0;
+	isSliced = false;
 }
 
 void Scene3D::addCameraState(Vector3 pos, Vector3 tar) {
@@ -79,7 +82,11 @@ void Scene3D::addCameraState(Vector3 pos, Vector3 tar) {
 }
 
 void Scene3D::drawModel() {
+	if (IsKeyPressed(KEY_H)) isSliced = !isSliced;
 	for (int i = 0; i < model.meshCount; i++) {
+		if (isSliced) {
+			if (i == 1 || i == 3) continue;
+		}
 		DrawMesh(model.meshes[i], model.materials[i + 1], model.transform);
 	}
 	DrawGrid(30, 1.f);
@@ -117,7 +124,7 @@ int Scene3D::getCameraFrame()
 	return cameraFrame;
 }
 
-Camera Scene3D::getCamera()
+Camera& Scene3D::getCamera()
 {
 	return camera;
 }
