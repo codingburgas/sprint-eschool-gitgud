@@ -51,8 +51,6 @@ git clone https://github.com/codingburgas/sprint-eschool-gitgud.git
 ### Design
 - [Design](gitGut/docs/design.png)
 
-### QA
-- [QA Documentation]()
 
 ## 👥 Team
 
