@@ -29,11 +29,6 @@ void ThreeDimensionalViewport::Draw(SubjectStates subjectState, bool lessonState
 
 	UpdateCamera(&scenes[0].getCamera(), CAMERA_FREE);
 
-	exitButton.Draw("Exit", 10);
-	prevFrameButton.Draw("<");
-	nextFrameButton.Draw(">");
-
-
 	BeginMode3D(scenes[0].getCamera());
 
 	switch (subjectState) {
@@ -42,7 +37,6 @@ void ThreeDimensionalViewport::Draw(SubjectStates subjectState, bool lessonState
 		case true:
 			scenes[0].drawModel();
 			break;
-		
 			
 		}
 		break;
@@ -52,8 +46,16 @@ void ThreeDimensionalViewport::Draw(SubjectStates subjectState, bool lessonState
 		break;
 	}
 	DrawGrid(0, 1.f);
-	EndDrawing();
 	EndMode3D();
+
+	DrawText("Press H to slice", 5, 470, 30, DARKGRAY);
+
+	exitButton.Draw("Exit", 10);
+	prevFrameButton.Draw("<");
+	nextFrameButton.Draw(">");
+
+
+	EndDrawing();
 }
 
 void ThreeDimensionalViewport::addScene(const char* modelPath) {
@@ -68,7 +70,7 @@ void ThreeDimensionalViewport::initializeScenes() {
 Scene3D::Scene3D(const char* modelPath = "") {
 	camera = { 0.f };
 	model = LoadModel(modelPath);
-	camera.position = {5.f, 5.f, 0.f};
+	camera.position = {10.f, 5.f, 0.f};
 	camera.fovy = 45.f;
 	camera.projection = CAMERA_PERSPECTIVE;
 	camera.target = { 0.f, 4.f, 0.f };

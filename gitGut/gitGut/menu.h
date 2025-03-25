@@ -9,8 +9,8 @@
 class Menu {
 public:
 	Menu() {};
-	void Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, bool lessonState, bool homeworkState, bool testState, int day);
-	void Update(ProgramStates& appState, SubjectStates& subject, LearningStates& learningState, bool& lessonState, bool &is3dOn, bool &homeworkState, bool &testState, int& day);
+	void Draw(ProgramStates appState, SubjectStates subject, bool lessonState, bool homeworkState, bool testState, int day);
+	void Update(ProgramStates& appState, SubjectStates& subject, bool& lessonState, bool &is3dOn, bool &homeworkState, bool &testState, int& day);
 	Texture2D getBackground(ProgramStates& appState, SubjectStates& Subject, int& day);
 private:
 

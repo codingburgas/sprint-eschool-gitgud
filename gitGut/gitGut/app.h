@@ -21,9 +21,9 @@ public:
 	void Display();
 	void Update();
 	void Draw();
-	void DrawLesson(SubjectStates subjectState);
-	void DrawHomework(SubjectStates subjectState);
-	void DrawTest(SubjectStates subjectState);
+	void DrawLesson();
+	void DrawHomework();
+	void DrawTest();
 
 
 private:

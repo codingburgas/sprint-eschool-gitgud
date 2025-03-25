@@ -11,23 +11,24 @@ void App::Display() {
 		}
 
 		Update();
+		cout << "Lesson: " << lessonState << " homework: " << homeworkState << " Test: " << testState << endl;
 
-		BeginDrawing();
 		Draw();
+		BeginDrawing();
 		if (lessonState == true)
 		{
-			DrawLesson(subjectState);
-			
-			//biologyLesson.Display(lessonState, is3dOn);
-
+			DrawLesson();
+			EndDrawing(); continue;
 		}
 		if (homeworkState == true)
 		{
-			DrawHomework(subjectState);
+			DrawHomework();
+			EndDrawing(); continue;
 		}
 		if (testState == true)
 		{
-			DrawTest(subjectState);
+			DrawTest();
+			EndDrawing(); continue;
 		}
 		EndDrawing();
 
@@ -37,17 +38,16 @@ void App::Display() {
 }
 
 void App::Update() {
-	menu.Update(appState, subjectState, learningState, lessonState, is3dOn, homeworkState,testState, day);
+	menu.Update(appState, subjectState, lessonState, is3dOn, homeworkState, testState, day);
 }
 
 void App::Draw() {
-	menu.Draw(appState, subjectState, learningState, lessonState, homeworkState, testState, day);
+	menu.Draw(appState, subjectState, lessonState, homeworkState, testState, day);
 }
 
-void App::DrawLesson(SubjectStates subjectState)
+void App::DrawLesson()
 {
 		switch(subjectState)
-		
 		{
 		case MATHS: mathLesson.Display(lessonState, is3dOn);
 			break;
@@ -66,7 +66,7 @@ void App::DrawLesson(SubjectStates subjectState)
 	
 }
 
-void App::DrawHomework(SubjectStates subjectState)
+void App::DrawHomework()
 {
 	switch (subjectState)
 	{
@@ -85,7 +85,7 @@ void App::DrawHomework(SubjectStates subjectState)
 	}
 }
 
-void App::DrawTest(SubjectStates subjectState)
+void App::DrawTest()
 {
 	//switch za testovete
 }

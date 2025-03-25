@@ -1,6 +1,4 @@
 #include "lesson.h"
-#include <iostream>
-
 
 Lesson::Lesson(string text, bool has3D)
 {
@@ -21,7 +19,6 @@ void Lesson::Update(bool& lessonState, bool& is3Don)
 	if (exitButton.isPressed(mousePos, isMousePressed))
 	{
 		lessonState = false;
-		std::cout << lessonState;
 		is3Don = false;
 	}
 	if (Mold3D.isPressed(mousePos, isMousePressed))
