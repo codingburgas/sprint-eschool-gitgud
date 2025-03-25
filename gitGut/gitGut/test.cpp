@@ -27,7 +27,6 @@ void Test::Draw()
 {
 
 	DrawRectangle(0, 0, 960, 500, GREEN);
-	DrawText(testText.c_str(), 20, 100, 21, BLACK);
-
+	DrawTextEx(mainFont, testText.c_str(), { 20, 100 }, 21, 2, WHITE);
 	exitButton.Draw("exit");
 }

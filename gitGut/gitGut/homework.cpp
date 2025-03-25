@@ -27,7 +27,7 @@ void Homework::Draw()
 {
 
 	DrawRectangle(0, 0, 960, 500, GREEN);
-	DrawText( homeworkText.c_str(),  20, 100,21, BLACK);
-
+	DrawTextEx(mainFont, homeworkText.c_str(), { 20, 100 }, 21, 2, WHITE);
+	textBox.Draw();
 	exitButton.Draw("exit");
 }

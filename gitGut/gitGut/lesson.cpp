@@ -1,8 +1,9 @@
 #include "lesson.h"
 
-Lesson::Lesson(string text, bool has3D)
+Lesson::Lesson(string text, bool has3D, string heading )
 {
 	lessonText = text;
+	lessonHeading = heading;
 	include3D = has3D;
 }
 
@@ -31,8 +32,11 @@ void Lesson::Update(bool& lessonState, bool& is3Don)
 void Lesson::Draw()
 {
 
-	DrawRectangle(0, 0, 960, 500, BLUE);
-	DrawTextEx(mainFont, lessonText.c_str(), { 20, 100 }, 21, 2, WHITE);
+	DrawRectangle(0, 0, 960, 500, WHITE);
+	DrawTextEx(mainFont, lessonText.c_str(), { 20, 90 }, 21, 2, BLACK);
+	DrawTextEx(mainFont, lessonHeading.c_str(), { 327, 30 }, 40, 2, RED);
+	
+
 	exitButton.Draw("exit");
 	if (include3D) Mold3D.Draw("view 3D");
 
