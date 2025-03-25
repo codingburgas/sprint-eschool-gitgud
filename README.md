@@ -4,7 +4,7 @@
 <img src = "https://img.shields.io/badge/hope_you_like_it-blue"50/50>
 <img src = "https://img.shields.io/badge/languages-1-green"50/50>
 <p align = "center">
- <img width="300" src="gitGut/gitGut/images/Logo.png" alt="Logo png">
+ <img width="600" src="gitGut/gitGut/images/Logo-removebg-preview.png" alt="Logo png">
 </p>
 
 ## 📋 Description
