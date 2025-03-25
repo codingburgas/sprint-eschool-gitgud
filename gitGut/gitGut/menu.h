@@ -77,5 +77,4 @@ private:
 
 	Button scheduleReturnButton = Button(810, 450, 150, 50, {0,0,255,255});
 
-	Font mainFont = LoadFontEx("fonts/Roboto-Regular.ttf", 100, 0, 250);
 };

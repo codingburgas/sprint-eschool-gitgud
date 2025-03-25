@@ -32,7 +32,7 @@ void Lesson::Draw()
 {
 
 	DrawRectangle(0, 0, 960, 500, BLUE);
-	DrawText( lessonText.c_str(),  20, 100 , 21, BLACK);
+	DrawTextEx(mainFont, lessonText.c_str(), { 20, 100 }, 21, 2, WHITE);
 	exitButton.Draw("exit");
 	if (include3D) Mold3D.Draw("view 3D");
 

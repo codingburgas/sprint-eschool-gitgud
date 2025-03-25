@@ -19,4 +19,6 @@ private:
 	Button Mold3D = Button(400, 0, 150, 50, { 0,255,0,255 });
 	bool include3D;
 	Button exitButton = Button(810, 450, 150, 50, { 255, 0, 0, 255 });
+
+	Font mainFont = LoadFontEx("fonts/Roboto-Regular.ttf", 100, 0, 250);
 };
