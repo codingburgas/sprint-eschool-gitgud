@@ -1,4 +1,6 @@
 #include "lesson.h"
+#include <iostream>
+
 
 Lesson::Lesson(string text, bool has3D)
 {
@@ -19,6 +21,7 @@ void Lesson::Update(bool& lessonState, bool& is3Don)
 	if (exitButton.isPressed(mousePos, isMousePressed))
 	{
 		lessonState = false;
+		std::cout << lessonState;
 		is3Don = false;
 	}
 	if (Mold3D.isPressed(mousePos, isMousePressed))
@@ -32,7 +35,7 @@ void Lesson::Draw()
 {
 
 	DrawRectangle(0, 0, 960, 500, BLUE);
-	DrawText(lessonText.c_str(), 0, 0, 10, BLACK);
+	DrawText( lessonText.c_str(),  20, 100 , 21, BLACK);
 	exitButton.Draw("exit");
 	if (include3D) Mold3D.Draw("view 3D");
 

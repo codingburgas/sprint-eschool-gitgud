@@ -16,8 +16,18 @@ void App::Display() {
 		Draw();
 		if (lessonState == true)
 		{
-			biologyLesson.Display(lessonState, is3dOn);
+			DrawLesson(subjectState);
+			
+			//biologyLesson.Display(lessonState, is3dOn);
 
+		}
+		if (homeworkState == true)
+		{
+			DrawHomework(subjectState);
+		}
+		if (testState == true)
+		{
+			DrawTest(subjectState);
 		}
 		EndDrawing();
 
@@ -27,14 +37,55 @@ void App::Display() {
 }
 
 void App::Update() {
-	menu.Update(appState, subjectState, learningState, lessonState, is3dOn, day);
+	menu.Update(appState, subjectState, learningState, lessonState, is3dOn, homeworkState,testState, day);
 }
 
 void App::Draw() {
-	menu.Draw(appState, subjectState, learningState, lessonState, day);
+	menu.Draw(appState, subjectState, learningState, lessonState, homeworkState, testState, day);
 }
 
 void App::DrawLesson(SubjectStates subjectState)
 {
-	//switch for different lessons
+		switch(subjectState)
+		
+		{
+		case MATHS: mathLesson.Display(lessonState, is3dOn);
+			break;
+		case ENGLISH: englishLesson.Display(lessonState, is3dOn);
+			break;
+		case BIOLOGY: biologyLesson.Display(lessonState, is3dOn);
+			break;
+		case PHYSICS: physicsLesson.Display(lessonState, is3dOn);
+			break;
+		case CHEMISTRY: chemistryLesson.Display(lessonState, is3dOn);
+			break;
+		case GEOGRAPHY: geographyLesson.Display(lessonState, is3dOn);
+			break;
+		}
+		
+	
+}
+
+void App::DrawHomework(SubjectStates subjectState)
+{
+	switch (subjectState)
+	{
+	case MATHS: mathHomework.Display(homeworkState);
+		break;
+	case ENGLISH: englishHomework.Display(homeworkState);
+		break;
+	case BIOLOGY: biologyHomework.Display(homeworkState);
+		break;
+	case PHYSICS: physicsHomework.Display(homeworkState);
+		break;
+	case CHEMISTRY: chemistryHomework.Display(homeworkState);
+		break;
+	case GEOGRAPHY: geographyHomework.Display(homeworkState);
+		break;
+	}
+}
+
+void App::DrawTest(SubjectStates subjectState)
+{
+	//switch za testovete
 }

@@ -9,8 +9,8 @@
 class Menu {
 public:
 	Menu() {};
-	void Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, bool lessonState, int day);
-	void Update(ProgramStates& appState, SubjectStates& subject, LearningStates& learningState, bool& lessonState, bool &is3dOn, int& day);
+	void Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, bool lessonState, bool homeworkState, bool testState, int day);
+	void Update(ProgramStates& appState, SubjectStates& subject, LearningStates& learningState, bool& lessonState, bool &is3dOn, bool &homeworkState, bool &testState, int& day);
 	Texture2D getBackground(ProgramStates& appState, SubjectStates& Subject, int& day);
 private:
 
@@ -77,4 +77,5 @@ private:
 
 	Button scheduleReturnButton = Button(810, 450, 150, 50, {0,0,255,255});
 
+	Font mainFont = LoadFontEx("fonts/Roboto-Regular.ttf", 100, 0, 250);
 };

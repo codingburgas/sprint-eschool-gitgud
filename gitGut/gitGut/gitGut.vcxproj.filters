@@ -7,6 +7,8 @@
     <ClCompile Include="button.cpp" />
     <ClCompile Include="3DViewport.cpp" />
     <ClCompile Include="lesson.cpp" />
+    <ClCompile Include="homework.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.h" />
@@ -15,5 +17,7 @@
     <ClInclude Include="utils.h" />
     <ClInclude Include="3DViewport.h" />
     <ClInclude Include="lesson.h" />
+    <ClInclude Include="homework.h" />
+    <ClInclude Include="test.h" />
   </ItemGroup>
 </Project>

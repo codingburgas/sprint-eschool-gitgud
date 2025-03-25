@@ -1,7 +1,7 @@
 #include "menu.h"
 
 // Visualizes the main menu elements
-void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, bool lessonState, int day) {
+void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates learningState, bool lessonState, bool homeworkState, bool testState, int day) {
 
 	switch (appState) {
 	case MAIN_MENU:
@@ -82,7 +82,7 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject, LearningStates le
 }
 
 // Updates the app state when a certain action happens (e.g. When a button is pressed)
-void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningStates &learningState, bool &lessonState, bool &is3dOn, int& day) {
+void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningStates &learningState, bool &lessonState, bool &is3dOn, bool &homeworkState, bool &testState, int& day) {
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
 	if (nextButton.isPressed(mousePos, isMousePressed))
@@ -102,7 +102,7 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 		}
 	}
 	
-	std::cout << day<< std::endl;
+	//std::cout << day<< std::endl;
 	switch (appState) {
 	case MAIN_MENU:
 		if (mainMenuButtons[0].isPressed(mousePos, isMousePressed))
@@ -117,13 +117,26 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 	case SUBJECTS_MENU:
 		if (subject != NO_SUBJECT) {
 			if (optionsButtons[0].isPressed(mousePos, isMousePressed))
+			{
 				learningState = LESSONS;
+			
+
+				
+			}
 			else if (optionsButtons[1].isPressed(mousePos, isMousePressed))
+			{
 				learningState = EXERCISES;
+			}
 			else if (optionsButtons[2].isPressed(mousePos, isMousePressed))
+			{
 				learningState = HOMEWORK;
+		
+			
+			}
 			else if (optionsButtons[3].isPressed(mousePos, isMousePressed))
+			{
 				learningState = TESTS;
+			}
 		}
 
 		if (subjectMenuButtons[0].isPressed(mousePos, isMousePressed))
@@ -145,13 +158,63 @@ void Menu::Update(ProgramStates &appState, SubjectStates &subject, LearningState
 
 		switch (subject) {
 		case MATHS:
+			if (optionsButtons[0].isPressed(mousePos, isMousePressed)) {
+				lessonState = true;
+
+			}else if (optionsButtons[2].isPressed(mousePos, isMousePressed))
+			{
+				homeworkState = true;
+			}
+
 			break;
 		case ENGLISH:
+			if (optionsButtons[0].isPressed(mousePos, isMousePressed)) {
+				lessonState = true;
+
+			}
+			else if (optionsButtons[2].isPressed(mousePos, isMousePressed))
+			{
+				homeworkState = true;
+			}
 			break;
 		case BIOLOGY:
 			if (optionsButtons[0].isPressed(mousePos, isMousePressed)) {
 				lessonState = true;
 			
+			}
+			else if (optionsButtons[2].isPressed(mousePos, isMousePressed))
+			{
+				homeworkState = true;
+			}
+			break;
+		case PHYSICS:
+			if (optionsButtons[0].isPressed(mousePos, isMousePressed)) {
+				lessonState = true;
+
+			}
+			else if (optionsButtons[2].isPressed(mousePos, isMousePressed))
+			{
+				homeworkState = true;
+			}
+			break;
+		case CHEMISTRY:
+			if (optionsButtons[0].isPressed(mousePos, isMousePressed)) {
+				lessonState = true;
+
+			}
+			else if (optionsButtons[2].isPressed(mousePos, isMousePressed))
+			{
+				homeworkState = true;
+			}
+			break;
+		case GEOGRAPHY:
+			if (optionsButtons[0].isPressed(mousePos, isMousePressed)) {
+				lessonState = true;
+
+			}
+			else if (optionsButtons[2].isPressed(mousePos, isMousePressed))
+			{
+				homeworkState = true;
 			}
 			break;
 		}
