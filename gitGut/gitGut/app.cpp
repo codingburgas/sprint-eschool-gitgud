@@ -87,5 +87,19 @@ void App::DrawHomework()
 
 void App::DrawTest()
 {
-	//switch za testovete
+	switch (subjectState)
+	{
+	case MATHS: mathTest.Display(testState);
+		break;
+	case ENGLISH: englishTest.Display(testState);
+		break;
+	case BIOLOGY: biologyTest.Display(testState);
+		break;
+	case PHYSICS: physicsTest.Display(testState);
+		break;
+	case CHEMISTRY: chemistryTest.Display(testState);
+		break;
+	case GEOGRAPHY: geographyTest.Display(testState);
+		break;
+	}
 }

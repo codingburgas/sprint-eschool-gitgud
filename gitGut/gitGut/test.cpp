@@ -20,20 +20,14 @@ void Test::Update(bool& testState)
 	if (exitButton.isPressed(mousePos, isMousePressed))
 	{
 		testState = false;
-	
 	}
-	
-
 }
 
 void Test::Draw()
 {
 
-	DrawRectangle(0, 0, 960, 500, BLUE);
+	DrawRectangle(0, 0, 960, 500, GREEN);
 	DrawText(testText.c_str(), 20, 100, 21, BLACK);
+
 	exitButton.Draw("exit");
-	
-
-
-
 }

@@ -144,6 +144,11 @@ void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonS
 			{
 				homeworkState = true;
 			}
+			else if (optionsButtons[3].isPressed(mousePos, isMousePressed))
+			{
+				testState = true;
+			}
+
 		}
 	}
 }

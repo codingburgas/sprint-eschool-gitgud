@@ -51,6 +51,13 @@ private:
 	Homework geographyHomework = Homework("neshtotam");
 	Homework biologyHomework = Homework("neshtotam");
 
+	Test mathTest = Test("AAAAAAAAAAAAAAAAAAA");
+	Test englishTest = Test("neshtotam");
+	Test chemistryTest = Test("neshtotam");
+	Test physicsTest = Test("neshtotam");
+	Test geographyTest = Test("neshtotam");
+	Test biologyTest = Test("neshtotam");
+
 
 
 };
