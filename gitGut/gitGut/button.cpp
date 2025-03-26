@@ -2,6 +2,7 @@
 
 // Returns the font size which is perfect to fit a particular text in a certain container.
 float findPerfectFontSize(Rectangle container, const char* text, int textPadding) {
+	// Start with a font size as large as the container width.
 	float fontSize = container.width;
 	Vector2 textSize = MeasureTextEx(GetFontDefault(), text, fontSize, 5.f);
 
@@ -22,6 +23,7 @@ Button::Button(const char* filePath, Vector2 position) :
 	rec.width = texture.width;
 	rec.height = texture.height;
 }
+// Draws the button
 void Button::Draw(const char* text, int textPadding) const {
 
 	if (this->hasTexture)
@@ -37,7 +39,7 @@ void Button::Draw(const char* text, int textPadding) const {
 	}
 }
 
-
+// Determines if the button is pressed based on mouse position and mouse click status
 bool Button::isPressed(Vector2 mousePos, bool isMousePressed) {
 	if (CheckCollisionPointRec(mousePos, rec) && isMousePressed)
 		return true;

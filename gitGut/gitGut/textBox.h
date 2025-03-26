@@ -7,9 +7,13 @@ class TextBox {
 public:
 	TextBox(float x, float y, float width, float height, bool multiLine);
 	TextBox() {};
+	// Renders the TextBox on the screen
 	void Draw();
+	// Updates the TextBox state based on user interaction
 	void Update();
+	// Clears the text within the TextBox and resets the letter counter
 	void ClearText();
+	// Updates the text within the TextBox based on user input
 	void UpdateTheText();
 	
 private:

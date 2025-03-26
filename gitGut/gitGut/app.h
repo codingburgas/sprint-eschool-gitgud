@@ -9,6 +9,7 @@
 
 class App {
 public:
+	// Initializes the app state and default values
 	App() : appState(MAIN_MENU),
 			subjectState(NO_SUBJECT),
 			learningState(NO_LEARN),
@@ -21,11 +22,17 @@ public:
 		V3D.RotateObject(0, { 1.f, 0.f, 0.f });
 		V3D.MoveObject(0, { 0.f, 5.f, 0.f });
 	}
+	// Function to handle display logic
 	void Display();
+	// Function to update app state
 	void Update();
+	// Function to draw the current state of the app
 	void Draw();
+	// Function to handle drawing of lesson content
 	void DrawLesson();
+	// Function to handle drawing of homework assignments
 	void DrawHomework();
+	// Function to handle drawing of tests
 	void DrawTest();
 
 

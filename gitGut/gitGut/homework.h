@@ -12,8 +12,11 @@ class Homework
 {
 public:
 	Homework(string text, TextBox textbox);
+	// Combines updating the interface state and rendering the visual components on the screen.
 	void Display(bool& homeworkState);
+	// Updates the state of the homework interface.
 	void Update(bool& homeworkState);
+	// Draws the homework interface components on the screen.
 	void Draw();
 private:
 	string homeworkText;

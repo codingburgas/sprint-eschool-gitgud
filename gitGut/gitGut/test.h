@@ -10,8 +10,11 @@ class Test
 {
 public:
 	Test(string text);
+	// Calls the Update method for handling interactions and the Draw method for rendering the visuals.
 	void Display(bool& testState);
+	// Handles user interactions and updates the state of the tests interface
 	void Update(bool& testState);
+	// Includes the background, test text, and the "exit" button
 	void Draw();
 private:
 	string testText;

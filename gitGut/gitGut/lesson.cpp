@@ -1,18 +1,21 @@
 #include "lesson.h"
-
+// Initializes the lesson text, heading, and whether the lesson includes a 3D model
 Lesson::Lesson(string text, bool has3D, string heading )
 {
 	lessonText = text;
 	lessonHeading = heading;
 	include3D = has3D;
 }
-
+// Displays the lesson interface
 void Lesson::Display(bool& lessonState, bool& is3Don)
 {
+	//Update the lesson state if 3D is on
 	Update(lessonState, is3Don);
+	// Draws the lesson state
 	Draw();
 }
 
+// Updates the state of the lesson interface.
 void Lesson::Update(bool& lessonState, bool& is3Don)
 {
 	Vector2 mousePos = GetMousePosition();
@@ -26,7 +29,7 @@ void Lesson::Update(bool& lessonState, bool& is3Don)
 		if (Mold3D.isPressed(mousePos, isMousePressed)) is3Don = true;
 	}
 }
-
+ // Draw the lesson interface
 void Lesson::Draw()
 {
 

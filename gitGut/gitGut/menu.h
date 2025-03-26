@@ -8,8 +8,11 @@
 
 class Menu {
 public:
+	//Default initialization of menu elements.
 	Menu() {};
+	// Draws the visual elements of the menu based on the current app state and context.
 	void Draw(ProgramStates appState, SubjectStates subject, bool lessonState, bool homeworkState, bool testState, int day);
+	// Updates the menu state and interacts with user inputs 
 	void Update(ProgramStates& appState, SubjectStates& subject, bool& lessonState, bool &is3dOn, bool &homeworkState, bool &testState, int& day);
 	Texture2D getBackground(ProgramStates& appState, SubjectStates& Subject, int& day);
 private:
@@ -24,8 +27,7 @@ private:
 	Button("images/Schedule_button.png", { 640, 213 })
 	};
 
-	///////////////////////////////////////////////////////////////////
-	// subjects menu elements
+	//subjects menu elements
 
 	std::vector<Button> subjectMenuButtons = {
 	Button("images/maths_button.png", { 20, 10 }),

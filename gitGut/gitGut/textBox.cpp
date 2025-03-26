@@ -73,6 +73,7 @@ void TextBox::UpdateTheText() {
 	}
 }
 
+// Clears the text within the TextBox and resets the letter counter
 void TextBox::ClearText() {
 	text[0] = '\0';
 	letterCounter = 0;

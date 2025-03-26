@@ -71,7 +71,9 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject, bool lessonState,
 			default: DrawTexture(mondaySchedule, 0, 0, WHITE);
 				break;
 		}
+		// Draw the "Next" button
 		nextButton.Draw();
+		// Draw the "Back" button
 		backButton.Draw();
 		scheduleReturnButton.Draw("Main menu", 10);
 	}

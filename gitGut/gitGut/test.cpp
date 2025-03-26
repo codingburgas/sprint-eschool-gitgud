@@ -1,18 +1,23 @@
 #include "test.h"
 
 
+// Initializes the test text with the string.
 Test::Test(string text)
 {
 	testText = text;
 
 }
 
+// Combines the update method to handle interactions and the draw method to render the visuals.
 void Test::Display(bool& testState)
 {
+	// Update the state of the test
 	Update(testState);
+	// Draws the test interface
 	Draw();
 }
 
+// Updates the test state.
 void Test::Update(bool& testState)
 {
 	Vector2 mousePos = GetMousePosition();
@@ -23,6 +28,7 @@ void Test::Update(bool& testState)
 	}
 }
 
+// Displays the background, test text, and the "exit" button
 void Test::Draw()
 {
 

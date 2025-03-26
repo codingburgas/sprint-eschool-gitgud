@@ -1,5 +1,6 @@
 #include "app.h"
 
+// Main display function 
 void App::Display() {
 	SetTargetFPS(60);
 
@@ -10,9 +11,11 @@ void App::Display() {
 			continue;
 		}
 
+		// Update the app state
 		Update();
-
+		// Draw the general components
 		Draw();
+		// Start drawing frame
 		BeginDrawing();
 		if (lessonState == true)
 		{
@@ -29,21 +32,27 @@ void App::Display() {
 			DrawTest();
 			EndDrawing(); continue;
 		}
+		// End drawing frame
 		EndDrawing();
 
+		// Draw the background 
 		DrawTexture(menu.getBackground(appState, subjectState, day), 0, 0 ,WHITE);
 	}
+	// Close the app window
 	CloseWindow();
 }
 
+// Updates the app state based on user input
 void App::Update() {
 	menu.Update(appState, subjectState, lessonState, is3dOn, homeworkState, testState, day);
 }
 
+// Draws the general components
 void App::Draw() {
 	menu.Draw(appState, subjectState, lessonState, homeworkState, testState, day);
 }
 
+// Draws the lesson content based on the selected subject
 void App::DrawLesson()
 {
 		switch(subjectState)
@@ -65,6 +74,7 @@ void App::DrawLesson()
 	
 }
 
+// Draws the homework content based on the selected subject
 void App::DrawHomework()
 {
 	switch (subjectState)
@@ -84,6 +94,7 @@ void App::DrawHomework()
 	}
 }
 
+// Draws the test content based on the selected subject
 void App::DrawTest()
 {
 	switch (subjectState)
