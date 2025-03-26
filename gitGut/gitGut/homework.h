@@ -19,5 +19,5 @@ private:
 	string homeworkText;
 	Button exitButton = Button(810, 450, 150, 50, { 255, 0, 0, 255 });
 	Font mainFont = LoadFontEx("fonts/Roboto-Regular.ttf", 100, 0, 250);
-	TextBox textBox = TextBox(130, 0, 700, 200);
+	TextBox textBox = TextBox(130, 94, 800, 380);
 };

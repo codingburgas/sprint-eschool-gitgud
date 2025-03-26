@@ -45,11 +45,11 @@ private:
 	Lesson physicsLesson = Lesson    ("Electricity is the flow of electric charge, typically carried by electrons. Flow \n\nof charge, measured in amperes (A).  The push that drives current, measured in \n\nvolts (V). Opposition to current, measured in ohms (?). Rate of energy use, measured in \n\n watts (W) (P = VxI) \n\n\nTypes: \n\n Static Electricity: Buildup of charge (e.g., rubbing a balloon).\n\n Current Electricity: Flow of charge through conductors (e.g., in power lines).\n\n\n Sources: \n\n Batteries: Provide DC electricity. \n\n Power Plants: Produce AC electricity for long-distance transmission.\n\n\n Electricity powers everything from lights to machines! ", true, "ELECTRICITY");
 
 	Homework mathHomework = Homework("AAAAAAAAAAAAAAAAAAA");
-	Homework englishHomework = Homework("neshtotam");
+	Homework englishHomework = Homework("Write me an essay about: The impact of social media, using past \n\nperfect tense. Maximum words:120-150");
 	Homework chemistryHomework = Homework("neshtotam");
 	Homework physicsHomework = Homework("neshtotam");
-	Homework geographyHomework = Homework("neshtotam");
-	Homework biologyHomework = Homework("neshtotam");
+	Homework geographyHomework = Homework("Write me an essay about the global warming and why it is happening.\n\n Maximum words:120-150");
+	Homework biologyHomework = Homework("Explain the different parts of the human heart.\n\n Maximum words:120-150 ");
 
 	Test mathTest = Test("AAAAAAAAAAAAAAAAAAA");
 	Test englishTest = Test("neshtotam");

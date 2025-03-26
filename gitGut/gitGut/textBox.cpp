@@ -12,7 +12,7 @@ TextBox::TextBox(float x, float y, float width, float height) {
 void TextBox::Draw() {
 	DrawRectangleRec(textbox, LIGHTGRAY);
 	if (textboxActive)
-		DrawRectangleLinesEx(textbox, 4, RED);
+		DrawRectangleLinesEx(textbox, 4, DARKBLUE);
 	else
 		DrawRectangleLinesEx(textbox, 4, BLACK);
 	DrawText(text, textbox.x + 5, textbox.y + 8, 20, BLACK);
@@ -55,7 +55,7 @@ void TextBox::UpdateTheText() {
 		}
 		key = GetKeyPressed();
 
-		if (letterCounter % 70 == 0) {
+		if (letterCounter % 65 == 0) {
 			text[letterCounter] = '\n';
 			text[letterCounter + 1] = '\0';
 			letterCounter++;
