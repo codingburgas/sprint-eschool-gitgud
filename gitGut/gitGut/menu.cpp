@@ -124,7 +124,7 @@ void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonS
 			subject = PHYSICS;
 		else if (subjectMenuButtons[5].isPressed(mousePos, isMousePressed))
 			subject = GEOGRAPHY;
-		else if (returnButton.isPressed(mousePos, isMousePressed)) {
+		else if (returnButton.isPressed(mousePos, isMousePressed) && !lessonState && !homeworkState && !testState) {
 			appState = MAIN_MENU;
 			subject = NO_SUBJECT;
 			lessonState = false;
@@ -144,7 +144,6 @@ void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonS
 			{
 				testState = true;
 			}
-
 		}
 	}
 }
