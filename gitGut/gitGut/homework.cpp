@@ -21,11 +21,11 @@ void Homework::Update(bool& homeworkState)
 	{
 		homeworkState = false;
 	}
+	textBox.Update();
 }
 
 void Homework::Draw()
 {
-
 	DrawRectangle(0, 0, 960, 500, GREEN);
 	DrawTextEx(mainFont, homeworkText.c_str(), { 20, 100 }, 21, 2, WHITE);
 	textBox.Draw();

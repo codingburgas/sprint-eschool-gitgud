@@ -1,4 +1,6 @@
 #include "textBox.h"
+#include <iostream>
+using namespace std;
 
 TextBox::TextBox(float x, float y, float width, float height) {
 	letterCounter = 0;
@@ -13,7 +15,8 @@ void TextBox::Draw() {
 		DrawRectangleLinesEx(textbox, 4, RED);
 	else
 		DrawRectangleLinesEx(textbox, 4, BLACK);
-	DrawText(text, textbox.x + 5, textbox.y + 8, 40, BLACK);
+	DrawText(text, textbox.x + 5, textbox.y + 8, 20, BLACK);
+	cout << text << endl;
 }
 
 // Updates the textbox borders when clicked and call a function to update the text string
@@ -27,7 +30,6 @@ void TextBox::Update() {
 		SetMouseCursor(MOUSE_CURSOR_DEFAULT);
 	if (textboxActive) {
 		UpdateTheText();
-		for (int i = 0; i < letterCounter; i++);
 	}
 }
 
@@ -36,12 +38,28 @@ void TextBox::UpdateTheText() {
 	int key = GetKeyPressed();
 	while (key > 0) {
 
-		if (key >= 48 and key <= 57 and letterCounter < MAX_INPUT_CHARS) {
+		if (key >= 39 and key <= 90 and letterCounter < MAX_INPUT_CHARS) {
+			if (IsKeyDown(KEY_LEFT_SHIFT)) {
+				text[letterCounter] = (char)key;
+			}
+			else {
+				text[letterCounter] = (char)key + 32;
+			}
+				text[letterCounter + 1] = '\0';
+				letterCounter++;
+		}
+		else if (key == 32) {
 			text[letterCounter] = (char)key;
 			text[letterCounter + 1] = '\0';
 			letterCounter++;
 		}
 		key = GetKeyPressed();
+
+		if (letterCounter % 70 == 0) {
+			text[letterCounter] = '\n';
+			text[letterCounter + 1] = '\0';
+			letterCounter++;
+		}
 	}
 
 	if (IsKeyPressed(KEY_BACKSPACE)) {
