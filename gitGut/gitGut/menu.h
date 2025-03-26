@@ -14,7 +14,7 @@ public:
 	Texture2D getBackground(ProgramStates& appState, SubjectStates& Subject, int& day);
 private:
 
-	Button returnButton = Button(810, 450, 150, 50, { 30, 146, 235, 255 });
+	Button returnButton = Button("images/back_button.png", { 810, 420 });
 
 	// main menu elements
 

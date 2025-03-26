@@ -1,2 +1,8 @@
-﻿  menu.cpp
-  gitGut.vcxproj -> C:\Users\Velislav\Desktop\Coding\Proektnata 9 klas\sprint-eschool-gitgud\gitGut\bin\Debug-windows-x86_64\gitGut\gitGut.exe
+﻿  app.cpp
+  homework.cpp
+  main.cpp
+  textBox.cpp
+C:\Users\MSI\Desktop\gitGud\sprint-eschool-gitgud\gitGut\gitGut\textBox.cpp(19,42): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+C:\Users\MSI\Desktop\gitGud\sprint-eschool-gitgud\gitGut\gitGut\textBox.cpp(19,27): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+  Generating Code...
+  gitGut.vcxproj -> C:\Users\MSI\Desktop\gitGud\sprint-eschool-gitgud\gitGut\bin\Debug-windows-x86_64\gitGut\gitGut.exe

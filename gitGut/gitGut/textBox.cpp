@@ -2,10 +2,11 @@
 #include <iostream>
 using namespace std;
 
-TextBox::TextBox(float x, float y, float width, float height) {
+TextBox::TextBox(float x, float y, float width, float height, bool multiLine) {
 	letterCounter = 0;
 	textbox = { (GetScreenWidth() / 2.f) - (width / 2), y, width, height };
 	textboxActive = false;
+	isMultiLine = multiLine;
 }
 
 // Draws the textbox on the screen
@@ -35,7 +36,7 @@ void TextBox::Update() {
 // Updates the text string
 void TextBox::UpdateTheText() {
 	int key = GetKeyPressed();
-	while (key > 0) {
+	while (key > 0 && MeasureTextEx(GetFontDefault(), text, 20, 2).x <= textbox.width) {
 
 		if (key >= 39 and key <= 90 and letterCounter < MAX_INPUT_CHARS) {
 			if (IsKeyDown(KEY_LEFT_SHIFT)) {
@@ -53,12 +54,15 @@ void TextBox::UpdateTheText() {
 			letterCounter++;
 		}
 		key = GetKeyPressed();
-
-		if (letterCounter % 65 == 0) {
-			text[letterCounter] = '\n';
-			text[letterCounter + 1] = '\0';
-			letterCounter++;
+		if (isMultiLine == true)
+		{
+			if (letterCounter % 65 == 0) {
+				text[letterCounter] = '\n';
+				text[letterCounter + 1] = '\0';
+				letterCounter++;
+			}
 		}
+		
 	}
 
 	if (IsKeyPressed(KEY_BACKSPACE)) {

@@ -11,7 +11,7 @@ using namespace std;
 class Homework
 {
 public:
-	Homework(string text);
+	Homework(string text, TextBox textbox);
 	void Display(bool& homeworkState);
 	void Update(bool& homeworkState);
 	void Draw();
@@ -19,5 +19,6 @@ private:
 	string homeworkText;
 	Button exitButton = Button(810, 450, 150, 50, { 255, 0, 0, 255 });
 	Font mainFont = LoadFontEx("fonts/Roboto-Regular.ttf", 100, 0, 250);
-	TextBox textBox = TextBox(130, 94, 800, 380);
+	TextBox textBox;
+
 };

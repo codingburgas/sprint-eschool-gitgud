@@ -47,12 +47,12 @@ private:
 	Lesson geographyLesson = Lesson  ("Earth is the third planet from the Sun, and the only one known to support life. \n\nIt has a radius of 6,371 km and is covered 71% by water. Its atmosphere consists \n\nmainly of nitrogen (78%) and oxygen (21%). \n\n\n Earth's surface is made up of continents and oceans, with a diverse range of \n\necosystems and climates, from tropical rainforests to polar ice caps. It rotates\n\n every 24 hours and orbits the Sun in about 365.25 days. \n\n\n The planet's geology is shaped by tectonic plates, and its core is made of iron \n\nand nickel, creating a magnetic field. Human activities are impacting Earth’s environment,\n\n leading to challenges like climate change. \n\n\nEarth has one natural satellite, the Moon, which affects tides and stabilizes \n\nthe planet’s tilt, contributing to a stable climate.", true, "PLANET EARTH");
 	Lesson physicsLesson = Lesson    ("Electricity is the flow of electric charge, typically carried by electrons. Flow \n\nof charge, measured in amperes (A).  The push that drives current, measured in \n\nvolts (V). Opposition to current, measured in ohms (?). Rate of energy use, measured in \n\n watts (W) (P = VxI) \n\n\nTypes: \n\n Static Electricity: Buildup of charge (e.g., rubbing a balloon).\n\n Current Electricity: Flow of charge through conductors (e.g., in power lines).\n\n\n Sources: \n\n Batteries: Provide DC electricity. \n\n Power Plants: Produce AC electricity for long-distance transmission.\n\n\n Electricity powers everything from lights to machines! ", true, "ELECTRICITY");
 
-	Homework mathHomework = Homework("AAAAAAAAAAAAAAAAAAA");
-	Homework englishHomework = Homework("Write me an essay about: The impact of social media, using past \n\nperfect tense. Maximum words:120-150");
-	Homework chemistryHomework = Homework("neshtotam");
-	Homework physicsHomework = Homework("neshtotam");
-	Homework geographyHomework = Homework("Write me an essay about the global warming and why it is happening.\n\n Maximum words:120-150");
-	Homework biologyHomework = Homework("Explain the different parts of the human heart.\n\n Maximum words:120-150 ");
+	Homework mathHomework = Homework("AAAAAAAAAAAAAAAAAAA", TextBox(130, 94, 250, 50, false));
+	Homework englishHomework = Homework("Write me an essay about: The impact of social media, using past \n\nperfect tense. Maximum words:120-150", TextBox(130, 94, 800, 380, true));
+	Homework chemistryHomework = Homework("neshtotam", TextBox(130, 94, 250, 50, false));
+	Homework physicsHomework = Homework("neshtotam", TextBox(130, 94, 250, 50, false));
+	Homework geographyHomework = Homework("Write me an essay about the global warming and why it is happening.\n\n Maximum words:120-150", TextBox(130, 94, 800, 380, true));
+	Homework biologyHomework = Homework("Explain the different parts of the human heart.\n\n Maximum words:120-150 ", TextBox(130, 94, 800, 380, true));
 
 	Test mathTest = Test("AAAAAAAAAAAAAAAAAAA");
 	Test englishTest = Test("neshtotam");

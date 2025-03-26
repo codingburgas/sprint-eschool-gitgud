@@ -1,9 +1,10 @@
 #include "homework.h"
 
 
-Homework::Homework(string text)
+Homework::Homework(string text, TextBox textbox)
 {
 	homeworkText = text;
+	textBox = textbox;
 	
 }
 
@@ -28,6 +29,8 @@ void Homework::Draw()
 {
 	DrawRectangle(0, 0, 960, 500, WHITE);
 	DrawTextEx(mainFont, homeworkText.c_str(), { 20, 29 }, 26, 2, BLUE);
+	
 	textBox.Draw();
+	
 	exitButton.Draw("exit");
 }
