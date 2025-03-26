@@ -16,7 +16,7 @@ void ThreeDimensionalViewport::Update(bool& is3dOn) {
 
 	if (exitButton.isPressed(mousePos, isMouseClicked))
 		is3dOn = false;
-	
+
 	if (nextFrameButton.isPressed(mousePos, isMouseClicked))
 		scenes[0].setNextCameraState();
 
@@ -27,8 +27,6 @@ void ThreeDimensionalViewport::Draw(SubjectStates subjectState, bool lessonState
 	ClearBackground(RAYWHITE);
 	BeginDrawing();
 
-	UpdateCamera(&scenes[0].getCamera(), CAMERA_FREE);
-
 	BeginMode3D(scenes[0].getCamera());
 
 	switch (subjectState) {
@@ -37,7 +35,7 @@ void ThreeDimensionalViewport::Draw(SubjectStates subjectState, bool lessonState
 		case true:
 			scenes[0].drawModel();
 			break;
-			
+
 		}
 		break;
 	case CHEMISTRY:
@@ -63,20 +61,35 @@ void ThreeDimensionalViewport::addScene(const char* modelPath) {
 }
 
 void ThreeDimensionalViewport::initializeScenes() {
-	scenes[0].addCameraState({ 15.f, 5.f, 0.f }, { 0.f, 0.f, 0.f });
+	scenes[0].addCameraState({ 5.f, 5.f, 0.f }, { 0.f, 0.f, 0.f });
 	scenes[0].addCameraState({ 5.f, 15.f, 5.f }, { 0.f, 0.f, 0.f });
+	scenes[0].addCameraState({ 10.f, -5.f, 0.f }, { 0.f, 0.f, 0.f });
+	scenes[0].addCameraState({ 5.f, 15.f, 5.f }, { 0.f, 0.f, 0.f });
+	scenes[0].addCameraState({ 5.f, 15.f, 5.f }, { 0.f, 0.f, 0.f });
+
+}
+
+void ThreeDimensionalViewport::RotateObject(size_t scene, Vector3 angle) {
+	scenes[scene].RotateModel(angle);
+}
+
+void ThreeDimensionalViewport::MoveObject(size_t scene, Vector3 coords) {
+	scenes[scene].MoveModel(coords);
 }
 
 Scene3D::Scene3D(const char* modelPath = "") {
 	camera = { 0.f };
 	model = LoadModel(modelPath);
-	camera.position = {10.f, 5.f, 0.f};
+	camera.position = { 10.f, 5.f, 0.f };
 	camera.fovy = 45.f;
 	camera.projection = CAMERA_PERSPECTIVE;
-	camera.target = { 0.f, 4.f, 0.f };
+	camera.target = { 0.f, 5.f, 0.f };
 	camera.up = { 0.f, 1.f, 0.f };
 	cameraFrame = FRAME_0;
 	isSliced = false;
+	setX = false;
+	setY = false;
+	setZ = false;
 }
 
 void Scene3D::addCameraState(Vector3 pos, Vector3 tar) {
@@ -95,30 +108,23 @@ void Scene3D::drawModel() {
 }
 
 void Scene3D::switchCameraFrames(int cameraCurrentState) {
-	float& cameraX = camera.position.x;
-	float& cameraY = camera.position.y;
-	float& cameraZ = camera.position.z;
-
+	
+	camera.position = cameraStates[cameraCurrentState].position;
 	camera.target = cameraStates[cameraCurrentState].target;
 
-	if (cameraFrame != cameraCurrentState) {
-		if (cameraX != cameraStates[cameraCurrentState].position.x) {
-			if (cameraX > cameraStates[cameraCurrentState].position.x) cameraX += 0.1f;
-			else cameraX -= 0.1f;
-		}
-		if (cameraY != cameraStates[cameraCurrentState].position.y) {
-			if (cameraY > cameraStates[cameraCurrentState].position.y) cameraY += 0.1f;
-			else cameraY -= 0.1f;
-		}
-		if (cameraZ != cameraStates[cameraCurrentState].position.z) {
-			if (cameraZ > cameraStates[cameraCurrentState].position.z) cameraZ += 0.1f;
-			else cameraZ -= 0.1f;
-		}
-	}
 }
 
 void Scene3D::setNextCameraState() {
-	cameraFrame++;
+	if (cameraFrame == int(cameraStates.size()) - 1) cameraFrame = 0;
+	else cameraFrame++;
+}
+
+void Scene3D::RotateModel(Vector3 angle) {
+	model.transform = MatrixMultiply(model.transform, MatrixRotateXYZ(angle));
+}
+
+void Scene3D::MoveModel(Vector3 coords) {
+	model.transform = MatrixMultiply(model.transform, MatrixTranslate(coords.x, coords.y, coords.z));
 }
 
 int Scene3D::getCameraFrame()

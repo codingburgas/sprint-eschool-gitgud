@@ -1,10 +1,10 @@
 #pragma once
 #include "raylib.h"
+#include "raymath.h"
 #include "utils.h"
 #include "button.h"
 #include <vector>
-
-#define NUM_LESSONS_IN_ONE_SUBJECT 5
+#include <iostream>
 
 struct cameraState {
 	cameraState(Vector3 pos, Vector3 tar) :
@@ -22,14 +22,19 @@ public:
 	void drawModel();
 	void switchCameraFrames(int cameraCurrentState);
 	void setNextCameraState();
+	void RotateModel(Vector3 angle);
+	void MoveModel(Vector3 coords);
 	int getCameraFrame();
 	Camera& getCamera();
 	Model getModel();
 private:
-	Camera camera; 
+	Camera camera;
 	Model model;
 	int cameraFrame;
 	bool isSliced;
+	bool setX;
+	bool setY;
+	bool setZ;
 	std::vector<cameraState> cameraStates;
 };
 
@@ -41,9 +46,11 @@ public:
 	void Draw(SubjectStates subjectState, bool lessonState);
 	void addScene(const char* modelPath);
 	void initializeScenes();
+	void RotateObject(size_t scene, Vector3 angle);
+	void MoveObject(size_t scene, Vector3 coords);
 private:
 	std::vector<Scene3D> scenes;
-	Button exitButton = Button(1, 1, 60, 30, {255, 0, 0, 255});
+	Button exitButton = Button(1, 1, 60, 30, { 255, 0, 0, 255 });
 	Button prevFrameButton = Button(0, 220, 30, 60, { 0, 255, 0, 255 });
 	Button nextFrameButton = Button(930, 220, 30, 60, { 0, 255, 0, 255 });
 };

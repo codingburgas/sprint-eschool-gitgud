@@ -22,11 +22,9 @@ void Lesson::Update(bool& lessonState, bool& is3Don)
 		lessonState = false;
 		is3Don = false;
 	}
-	if (Mold3D.isPressed(mousePos, isMousePressed))
-	{
-		is3Don = true;
+	if (include3D) {
+		if (Mold3D.isPressed(mousePos, isMousePressed)) is3Don = true;
 	}
-
 }
 
 void Lesson::Draw()

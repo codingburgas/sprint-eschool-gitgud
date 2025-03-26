@@ -11,7 +11,6 @@ void App::Display() {
 		}
 
 		Update();
-		//cout << "Lesson: " << lessonState << " homework: " << homeworkState << " Test: " << testState << endl;
 
 		Draw();
 		BeginDrawing();

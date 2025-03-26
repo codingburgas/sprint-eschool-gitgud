@@ -16,7 +16,6 @@ void TextBox::Draw() {
 	else
 		DrawRectangleLinesEx(textbox, 4, BLACK);
 	DrawText(text, textbox.x + 5, textbox.y + 8, 20, BLACK);
-	cout << text << endl;
 }
 
 // Updates the textbox borders when clicked and call a function to update the text string

@@ -82,16 +82,14 @@ void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonS
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
 	if (appState == SCHEDULE) {
-		if (nextButton.isPressed(mousePos, isMousePressed))
-		{
+		if (nextButton.isPressed(mousePos, isMousePressed)) {
 			day++;
 			if (day >= 7)
 			{
 				day = 0;
 			}
 		}
-		else if (backButton.isPressed(mousePos, isMousePressed))
-		{
+		else if (backButton.isPressed(mousePos, isMousePressed)) {
 			day--;
 			if (day < 0)
 			{
@@ -100,7 +98,6 @@ void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonS
 		}
 	}
 	
-	//std::cout << day<< std::endl;
 	switch (appState) {
 	case MAIN_MENU:
 		if (mainMenuButtons[0].isPressed(mousePos, isMousePressed))
@@ -136,15 +133,14 @@ void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonS
 		}
 
 		if (subject != NO_SUBJECT) {
-			if (optionsButtons[0].isPressed(mousePos, isMousePressed)) {
+			if (optionsButtons[0].isPressed(mousePos, isMousePressed) && !homeworkState && !testState) {
 				lessonState = true;
-
 			}
-			else if (optionsButtons[2].isPressed(mousePos, isMousePressed))
+			else if (optionsButtons[2].isPressed(mousePos, isMousePressed) && !lessonState && !testState)
 			{
 				homeworkState = true;
 			}
-			else if (optionsButtons[3].isPressed(mousePos, isMousePressed))
+			else if (optionsButtons[3].isPressed(mousePos, isMousePressed) && !lessonState && !homeworkState)
 			{
 				testState = true;
 			}

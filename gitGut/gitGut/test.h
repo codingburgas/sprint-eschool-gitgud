@@ -6,7 +6,6 @@
 #include "menu.h"
 using namespace std;
 
-
 class Test
 {
 public:
