@@ -42,7 +42,6 @@ git clone https://github.com/codingburgas/sprint-eschool-gitgud.git
 
 ### Documentation
 - [Documentation](gitGut/docs/documentation.docx)
-- [Doxygen Documentation]()
 
 
 ### Presenting
