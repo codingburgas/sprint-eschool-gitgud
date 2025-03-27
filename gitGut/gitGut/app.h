@@ -21,6 +21,29 @@ public:
 	{
 		V3D.RotateObject(0, { 1.f, 0.f, 0.f });
 		V3D.MoveObject(0, { 0.f, 5.f, 0.f });
+
+		mathTest.AddQuestion(Question(2, "What is 2 + 2?", "2", "4", "5", "7"));
+		mathTest.AddQuestion(Question(3, "What is 2 + 3", "2", "4", "5", "7"));
+		mathTest.AddQuestion(Question(4, "What is 5 + 2?", "2", "4", "5", "7"));
+		mathTest.AddQuestion(Question(1, "What is 7 + 2?", "9", "4", "5", "7"));
+		mathTest.AddQuestion(Question(3, "What is 1 + 4?", "2", "4", "5", "7"));
+		mathTest.AddQuestion(Question(2, "What is 2 + 2?", "2", "4", "5", "7"));
+		mathTest.AddQuestion(Question(2, "What is 2 + 2?", "2", "4", "5", "7"));
+		mathTest.AddQuestion(Question(2, "What is 2 + 2?", "2", "4", "5", "7"));
+		mathTest.AddQuestion(Question(2, "What is 2 + 2?", "2", "4", "5", "7"));
+		mathTest.AddQuestion(Question(2, "What is 2 + 2?", "2", "4", "5", "7"));
+
+		englishTest.AddQuestion(Question(2, "She _____ to the store every Saturday.", "go", "goes", "going", "gone"));
+		englishTest.AddQuestion(Question(3, "Which sentence is correct?", "I has a new book.", "She do not like pizza.", "We are going to the park.", "He have two dogs."));
+		englishTest.AddQuestion(Question(3, "Select the correct sentence:", "He don’t like apples.", "They is very happy.", "She enjoys reading books.", "We was at the park."));
+		englishTest.AddQuestion(Question(2, "I _____ my homework before dinner yesterday.", "do", "does", "did", "doing"));
+		englishTest.AddQuestion(Question(4, "Which sentence is grammatically correct?", "There is many cars in the parking lot.", "He has a lot of friends.", "She have a big house.", "We was late to the meeting."));
+		englishTest.AddQuestion(Question(2, "This test is _____ than the one last week.", "go", "goes", "going", "gone"));
+		englishTest.AddQuestion(Question(2, "My best friend and I _____ to the same school.", "goes", "go", "going", "gone"));
+		englishTest.AddQuestion(Question(3, "Identify the correct sentence:", "She can sings very well.", "We watched a movie last night.", "He don’t have any pets.", "They was very tired."));
+		englishTest.AddQuestion(Question(2, "While I _____ TV, my mom was cooking dinner.", "watches", "watched", "was watching", "watching"));
+		englishTest.AddQuestion(Question(2, "The book is _____ the table.", "in", "on", "at", "of"));
+
 	}
 	// Function to handle display logic
 	void Display();
@@ -61,12 +84,12 @@ private:
 	Homework geographyHomework = Homework("Write me an essay about the global warming and why it is happening.\n\n Maximum words:120-150", TextBox(130, 94, 800, 380, true));
 	Homework biologyHomework = Homework("Explain the different parts of the human heart.\n\n Maximum words:120-150 ", TextBox(130, 94, 800, 380, true));
 
-	Test mathTest = Test("AAAAAAAAAAAAAAAAAAA");
-	Test englishTest = Test("neshtotam");
-	Test chemistryTest = Test("neshtotam");
-	Test physicsTest = Test("neshtotam");
-	Test geographyTest = Test("neshtotam");
-	Test biologyTest = Test("neshtotam");
+	Test mathTest = Test();
+	Test englishTest = Test();
+	Test chemistryTest = Test();
+	Test physicsTest = Test();
+	Test geographyTest = Test();
+	Test biologyTest = Test();
 
 
 

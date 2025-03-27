@@ -6,6 +6,7 @@ float findPerfectFontSize(Rectangle container, const char* text, int textPadding
 
 class Button {
 public:
+	Button() {};
 	Button(int x, int y, int width, int height, Color col):
 		rec{ (float)x, (float)y, (float)width, (float)height },
 		color(col), hasTexture(false) {}
