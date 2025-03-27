@@ -42,10 +42,9 @@ private:
 
 	Rectangle subjectTitle = { 187, 0, 775, 100 };
 
-	std::vector<int> optionsPaddings = { 60, 60, 60, 100 };
+	std::vector<int> optionsPaddings = { 60, 60, 100 };
 	std::vector<const char*> optionsTitles = {
 		"Lessons",
-		"Exercises",
 		"Homework",
 		"Tests",
 	};
@@ -53,8 +52,7 @@ private:
 	std::vector<Button> optionsButtons = {
 	Button(230, 120, 300, 75, { 30, 146, 235, 255 }),
 	Button(230, 215, 300, 75, { 30, 146, 235, 255 }),
-	Button(230, 310, 300, 75, { 30, 146, 235, 255 }),
-	Button(230, 405, 300, 75, { 30, 146, 235, 255 })
+	Button(230, 310, 300, 75, { 30, 146, 235, 255 })
 	};
 
 

@@ -83,6 +83,7 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject, bool lessonState,
 void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonState, bool& is3dOn, bool& homeworkState, bool& testState, int& day) {
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
+	std::cout << mousePos.x << " " << mousePos.y << std::endl;
 	if (appState == SCHEDULE) {
 		if (nextButton.isPressed(mousePos, isMousePressed)) {
 			day++;
@@ -138,11 +139,11 @@ void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonS
 			if (optionsButtons[0].isPressed(mousePos, isMousePressed) && !homeworkState && !testState) {
 				lessonState = true;
 			}
-			else if (optionsButtons[2].isPressed(mousePos, isMousePressed) && !lessonState && !testState)
+			else if (optionsButtons[1].isPressed(mousePos, isMousePressed) && !lessonState && !testState)
 			{
 				homeworkState = true;
 			}
-			else if (optionsButtons[3].isPressed(mousePos, isMousePressed) && !lessonState && !homeworkState)
+			else if (optionsButtons[2].isPressed(mousePos, isMousePressed) && !lessonState && !homeworkState)
 			{
 				testState = true;
 			}
@@ -175,6 +176,7 @@ Texture2D Menu::getBackground(ProgramStates& appState, SubjectStates& Subject, i
 		case GEOGRAPHY: return geographyBackground;
 			break;
 		}
+		break;
 	case SCHEDULE: 
 		if (scheduleReturnButton.isPressed(mousePos, isMousePressed)) {
 			day = NO_SCHEDULE;

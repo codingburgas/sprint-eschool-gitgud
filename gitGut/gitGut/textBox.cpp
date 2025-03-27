@@ -2,11 +2,12 @@
 #include <iostream>
 using namespace std;
 
-TextBox::TextBox(float x, float y, float width, float height, bool multiLine) {
+TextBox::TextBox(float x, float y, float width, float height, bool multiLine, int maxChars) {
 	letterCounter = 0;
-	textbox = { (GetScreenWidth() / 2.f) - (width / 2), y, width, height };
+	textbox = { x, y, width, height};
 	textboxActive = false;
 	isMultiLine = multiLine;
+	maxchars = maxChars;
 }
 
 // Draws the textbox on the screen
@@ -36,10 +37,10 @@ void TextBox::Update() {
 // Updates the text string
 void TextBox::UpdateTheText() {
 	int key = GetKeyPressed();
-	while (key > 0 && MeasureTextEx(GetFontDefault(), text, 20, 2).x <= textbox.width) {
+	while (key > 0) {
 
-		if (key >= 39 and key <= 90 and letterCounter < MAX_INPUT_CHARS) {
-			if (IsKeyDown(KEY_LEFT_SHIFT)) {
+		if (key >= 39 && key <= 90 && letterCounter < maxchars) {
+			if (IsKeyDown(KEY_LEFT_SHIFT) && key >= 65 && key <= 90) {
 				text[letterCounter] = (char)key;
 			}
 			else {
@@ -71,6 +72,19 @@ void TextBox::UpdateTheText() {
 			letterCounter = 0;
 		text[letterCounter] = '\0';
 	}
+}
+
+bool TextBox::isSelected()
+{
+	return textboxActive;
+}
+
+void TextBox::Unselect() {
+	textboxActive = false;
+}
+
+void TextBox::Select() {
+	textboxActive = true;
 }
 
 // Clears the text within the TextBox and resets the letter counter

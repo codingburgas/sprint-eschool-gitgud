@@ -11,12 +11,11 @@ void App::Display() {
 			continue;
 		}
 
-		// Update the app state
+		// Updates the app states
 		Update();
-		// Draw the general components
-		Draw();
-		// Start drawing frame
 		BeginDrawing();
+		// Draws the general components
+		Draw();
 		if (lessonState == true)
 		{
 			DrawLesson();
@@ -32,13 +31,10 @@ void App::Display() {
 			DrawTest();
 			EndDrawing(); continue;
 		}
-		// End drawing frame
 		EndDrawing();
 
-		// Draw the background 
 		DrawTexture(menu.getBackground(appState, subjectState, day), 0, 0 ,WHITE);
 	}
-	// Close the app window
 	CloseWindow();
 }
 

@@ -18,16 +18,6 @@ enum SubjectStates {
 	GEOGRAPHY
 };
 
-enum LearningStates {
-	NO_LEARN = 0,
-	LESSONS,
-	EXERCISES,
-	HOMEWORK,
-	TESTS,
-};
-
-
-
 enum cameraFrames3D {
 	FRAME_0,
 	FRAME_1,
@@ -49,15 +39,11 @@ enum ScheduleState
 };
 
 enum TestQuestions {
-	QUESTION_0,
+	START_TEST,
 	QUESTION_1,
 	QUESTION_2,
 	QUESTION_3,
 	QUESTION_4,
 	QUESTION_5,
-	QUESTION_6,
-	QUESTION_7,
-	QUESTION_8,
-	QUESTION_9,
-	QUESTION_10,
+	QUESTION_0
 };

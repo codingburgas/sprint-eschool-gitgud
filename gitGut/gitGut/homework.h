@@ -11,17 +11,21 @@ using namespace std;
 class Homework
 {
 public:
-	Homework(string text, TextBox textbox);
+	Homework(string text, std::vector<TextBox> textboxes);
+	Homework(string text, std::vector<TextBox> textboxes, std::vector<Texture2D> image, std::vector<Vector2> imagePos);
 	// Combines updating the interface state and rendering the visual components on the screen.
 	void Display(bool& homeworkState);
 	// Updates the state of the homework interface.
 	void Update(bool& homeworkState);
 	// Draws the homework interface components on the screen.
 	void Draw();
+	void ClearTextBoxes();
 private:
 	string homeworkText;
-	Button exitButton = Button(810, 450, 150, 50, { 255, 0, 0, 255 });
+	Button exitButton = Button("images/exitButton.png", { 810, 390 });
 	Font mainFont = LoadFontEx("fonts/Roboto-Regular.ttf", 100, 0, 250);
-	TextBox textBox;
-
+	std::vector<TextBox> textBoxes;
+	std::vector<Texture2D> tex;
+	std::vector<Vector2> texPos;
+	bool isHomeworkCompleted;
 };
