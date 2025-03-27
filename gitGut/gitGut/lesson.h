@@ -13,9 +13,9 @@ public:
 	// Constructor for the Lesson class
 	Lesson(string text, bool has3D, string heading);
 	// Handles the display of the lesson interface.
-	void Display(bool& lessonState, bool& is3Don);
+	void Display(bool& lessonState, bool& is3Don, bool& isLessonLearnt);
 	// Updates the state of the lesson interface.
-	void Update(bool& lessonState, bool& is3Don);
+	void Update(bool& lessonState, bool& is3Don, bool& isLessonLearnt);
 	// Draws the lesson interface components.
 	void Draw();
 private:

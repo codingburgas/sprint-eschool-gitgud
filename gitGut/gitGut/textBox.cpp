@@ -39,7 +39,12 @@ void TextBox::UpdateTheText() {
 	int key = GetKeyPressed();
 	while (key > 0) {
 
-		if (key >= 39 && key <= 90 && letterCounter < maxchars) {
+		if (key >= 32 && key <= 61) {
+			text[letterCounter] = (char)key;
+			text[letterCounter + 1] = '\0';
+			letterCounter++;
+		}
+		else if (key >= 39 && key <= 90 && letterCounter < maxchars) {
 			if (IsKeyDown(KEY_LEFT_SHIFT) && key >= 65 && key <= 90) {
 				text[letterCounter] = (char)key;
 			}

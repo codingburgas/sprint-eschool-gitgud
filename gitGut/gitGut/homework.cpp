@@ -18,33 +18,34 @@ Homework::Homework(string text, std::vector<TextBox> textboxes, std::vector<Text
 }
 
 // Displays the homework interface
-void Homework::Display(bool& homeworkState)
+void Homework::Display(bool& homeworkState, bool& isHomeworkCompleted)
 {
 	// Update the homework state
-	Update(homeworkState);
+	Update(homeworkState, isHomeworkCompleted);
 	// Draw the homework components on the screen.
 	Draw();
 }
 
 // Updates the homework state and handles users interaction
-void Homework::Update(bool& homeworkState)
+void Homework::Update(bool& homeworkState, bool& isHomeworkCompleted)
 {
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
-	if (!isHomeworkCompleted) {
-		if (exitButton.isPressed(mousePos, isMousePressed))
-		{
-			homeworkState = false;
-			ClearTextBoxes();
-		}
-		// Update the text box state
-		for (TextBox& tb : textBoxes) {
-			tb.Update();
-			if (tb.isSelected()) {
-				for (TextBox& tb2 : textBoxes)
-					tb2.Unselect();
-				tb.Select();
-			}
+	if (exitButton.isPressed(mousePos, isMousePressed))
+	{
+		homeworkState = false;
+		isHomeworkCompleted = true;
+		ClearTextBoxes();
+		for (TextBox& tb : textBoxes)
+			tb.Unselect();
+	}
+	// Update the text box state
+	for (TextBox& tb : textBoxes) {
+		tb.Update();
+		if (tb.isSelected()) {
+			for (TextBox& tb2 : textBoxes)
+				tb2.Unselect();
+			tb.Select();
 		}
 	}
 }

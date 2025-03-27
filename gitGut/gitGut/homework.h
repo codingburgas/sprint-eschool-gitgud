@@ -14,9 +14,9 @@ public:
 	Homework(string text, std::vector<TextBox> textboxes);
 	Homework(string text, std::vector<TextBox> textboxes, std::vector<Texture2D> image, std::vector<Vector2> imagePos);
 	// Combines updating the interface state and rendering the visual components on the screen.
-	void Display(bool& homeworkState);
+	void Display(bool& homeworkState, bool& isHomeworkCompleted);
 	// Updates the state of the homework interface.
-	void Update(bool& homeworkState);
+	void Update(bool& homeworkState, bool& isHomeworkCompleted);
 	// Draws the homework interface components on the screen.
 	void Draw();
 	void ClearTextBoxes();

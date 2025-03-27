@@ -11,12 +11,19 @@ public:
 	//Default initialization of menu elements.
 	Menu() {};
 	// Draws the visual elements of the menu based on the current app state and context.
-	void Draw(ProgramStates appState, SubjectStates subject, bool lessonState, bool homeworkState, bool testState, int day);
+	void Draw(ProgramStates appState, SubjectStates subject, bool lessonState, bool homeworkState, 
+		bool testState,
+		int day, 
+		bool lessonsCompleted[], 
+		bool homeworksCompleted[],
+		bool testsCompleted[],
+		int numOfLessonsCompleted,
+		std::vector<std::string> completedLessons);
 	// Updates the menu state and interacts with user inputs 
 	void Update(ProgramStates& appState, SubjectStates& subject, bool& lessonState, bool &is3dOn, bool &homeworkState, bool &testState, int& day);
 	Texture2D getBackground(ProgramStates& appState, SubjectStates& Subject, int& day);
 private:
-
+	Font mainFont = LoadFontEx("fonts/Roboto-Regular.ttf", 100, 0, 250);
 	Button returnButton = Button("images/back_button.png", { 810, 420 });
 
 	// main menu elements
@@ -39,7 +46,7 @@ private:
 	};
 
 	Rectangle subjectsBackground = { 0, 0, 190, 500 };
-
+	Rectangle assigmentsBlock = { 0, 0, 960, 75 };
 	Rectangle subjectTitle = { 187, 0, 775, 100 };
 
 	std::vector<int> optionsPaddings = { 60, 60, 100 };

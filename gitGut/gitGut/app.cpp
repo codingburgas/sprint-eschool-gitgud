@@ -45,7 +45,7 @@ void App::Update() {
 
 // Draws the general components
 void App::Draw() {
-	menu.Draw(appState, subjectState, lessonState, homeworkState, testState, day);
+	menu.Draw(appState, subjectState, lessonState, homeworkState, testState, day, lessonsCompleted, homeworksCompleted, testsCompleted, getNumCompletedLessons(), getCompletedLessons());
 }
 
 // Draws the lesson content based on the selected subject
@@ -53,20 +53,19 @@ void App::DrawLesson()
 {
 		switch(subjectState)
 		{
-		case MATHS: mathLesson.Display(lessonState, is3dOn);
+		case MATHS: mathLesson.Display(lessonState, is3dOn, lessonsCompleted[0]);
 			break;
-		case ENGLISH: englishLesson.Display(lessonState, is3dOn);
+		case ENGLISH: englishLesson.Display(lessonState, is3dOn, lessonsCompleted[1]);
 			break;
-		case BIOLOGY: biologyLesson.Display(lessonState, is3dOn);
+		case BIOLOGY: biologyLesson.Display(lessonState, is3dOn, lessonsCompleted[2]);
 			break;
-		case PHYSICS: physicsLesson.Display(lessonState, is3dOn);
+		case PHYSICS: physicsLesson.Display(lessonState, is3dOn, lessonsCompleted[3]);
 			break;
-		case CHEMISTRY: chemistryLesson.Display(lessonState, is3dOn);
+		case CHEMISTRY: chemistryLesson.Display(lessonState, is3dOn, lessonsCompleted[4]);
 			break;
-		case GEOGRAPHY: geographyLesson.Display(lessonState, is3dOn);
+		case GEOGRAPHY: geographyLesson.Display(lessonState, is3dOn, lessonsCompleted[5]);
 			break;
 		}
-		
 	
 }
 
@@ -75,17 +74,17 @@ void App::DrawHomework()
 {
 	switch (subjectState)
 	{
-	case MATHS: mathHomework.Display(homeworkState);
+	case MATHS: mathHomework.Display(homeworkState, homeworksCompleted[0]);
 		break;
-	case ENGLISH: englishHomework.Display(homeworkState);
+	case ENGLISH: englishHomework.Display(homeworkState, homeworksCompleted[1]);
 		break;
-	case BIOLOGY: biologyHomework.Display(homeworkState);
+	case BIOLOGY: biologyHomework.Display(homeworkState, homeworksCompleted[2]);
 		break;
-	case PHYSICS: physicsHomework.Display(homeworkState);
+	case PHYSICS: physicsHomework.Display(homeworkState, homeworksCompleted[3]);
 		break;
-	case CHEMISTRY: chemistryHomework.Display(homeworkState);
+	case CHEMISTRY: chemistryHomework.Display(homeworkState, homeworksCompleted[4]);
 		break;
-	case GEOGRAPHY: geographyHomework.Display(homeworkState);
+	case GEOGRAPHY: geographyHomework.Display(homeworkState, homeworksCompleted[5]);
 		break;
 	}
 }
@@ -108,4 +107,40 @@ void App::DrawTest()
 	case GEOGRAPHY: geographyTest.Display(testState);
 		break;
 	}
+}
+
+int App::getNumCompletedLessons() {
+	int sum = 0;
+	for (bool lesson : lessonsCompleted) {
+		if (lesson == true) sum++;
+	}
+	return sum;
+}
+
+int App::getNumCompletedHomeworks() {
+	int sum = 0;
+	for (bool homework : homeworksCompleted) {
+		if (homework == true) sum++;
+	}
+	return sum;
+}
+
+int App::getNumCompletedTests() {
+	int sum = 0;
+	for (bool test : testsCompleted) {
+		if (test == true) sum++;
+	}
+	return sum;
+}
+
+std::vector<std::string> App::getCompletedLessons()
+{
+	std::vector<std::string> result;
+	if (lessonsCompleted[0]) result.push_back("Maths");
+	if (lessonsCompleted[0]) result.push_back("English");
+	if (lessonsCompleted[0]) result.push_back("Biology");
+	if (lessonsCompleted[0]) result.push_back("Chemistry");
+	if (lessonsCompleted[0]) result.push_back("Physics");
+	if (lessonsCompleted[0]) result.push_back("Geography");
+	return result;
 }

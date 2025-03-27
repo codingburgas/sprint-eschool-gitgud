@@ -1,7 +1,7 @@
 #include "menu.h"
 
 // Visualizes the main menu elements
-void Menu::Draw(ProgramStates appState, SubjectStates subject, bool lessonState, bool homeworkState, bool testState, int day) {
+void Menu::Draw(ProgramStates appState, SubjectStates subject, bool lessonState, bool homeworkState, bool testState, int day, bool lessonsCompleted[], bool homeworksCompleted[], bool testsCompleted[], int numOfLessonsCompleted, std::vector<std::string> completedLessons) {
 
 	switch (appState) {
 	case MAIN_MENU:
@@ -50,6 +50,17 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject, bool lessonState,
 			break;
 		}
 		break;
+	case ASSIGMENTS:
+		DrawRectangle(0, 0, 960, 500, DARKGRAY);
+		for (int i = 0; i < numOfLessonsCompleted; i++) {
+			if (!homeworksCompleted[i])
+				DrawRectangleLines(0, assigmentsBlock.height * i, assigmentsBlock.width, assigmentsBlock.height, GRAY);
+				DrawTextEx(mainFont, "New ", { 10, assigmentsBlock.height * i + 20 }, 40, 2, WHITE);
+				DrawTextEx(mainFont, completedLessons[i].c_str(), {90, assigmentsBlock.height * i + 20}, 40, 2, WHITE);
+				DrawTextEx(mainFont, " homework is avalible", { MeasureTextEx(mainFont, completedLessons[i].c_str(), 40, 2).x + 90, assigmentsBlock.height * i + 20}, 40, 2, WHITE);
+		}
+		returnButton.Draw("Back", 1);
+		break;
 	case SCHEDULE:
 		
 		switch (day)
@@ -83,7 +94,6 @@ void Menu::Draw(ProgramStates appState, SubjectStates subject, bool lessonState,
 void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonState, bool& is3dOn, bool& homeworkState, bool& testState, int& day) {
 	Vector2 mousePos = GetMousePosition();
 	bool isMousePressed = IsMouseButtonPressed(MOUSE_BUTTON_LEFT);
-	std::cout << mousePos.x << " " << mousePos.y << std::endl;
 	if (appState == SCHEDULE) {
 		if (nextButton.isPressed(mousePos, isMousePressed)) {
 			day++;
@@ -112,6 +122,9 @@ void Menu::Update(ProgramStates& appState, SubjectStates& subject, bool& lessonS
 			day = MONDAY;
 		}
 		break;
+	case ASSIGMENTS:
+		if (returnButton.isPressed(mousePos, isMousePressed))
+			appState = MAIN_MENU;
 
 	case SUBJECTS_MENU:
 

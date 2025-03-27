@@ -70,8 +70,10 @@ public:
 	void DrawHomework();
 	// Function to handle drawing of tests
 	void DrawTest();
-
-
+	int getNumCompletedLessons();
+	int getNumCompletedHomeworks();
+	int getNumCompletedTests();
+	std::vector<std::string> getCompletedLessons();
 private:
 	ProgramStates appState;
 	SubjectStates subjectState;
@@ -121,6 +123,30 @@ private:
 	Test geographyTest = Test();
 	Test biologyTest = Test();
 
+	bool lessonsCompleted[6] = {
+		false,
+		false,
+		false,
+		false,
+		false,
+		false
+	};
 
+	bool homeworksCompleted[6] = {
+		false,
+		false,
+		false,
+		false,
+		false,
+		false
+	};
 
+	bool testsCompleted[6] = {
+		false,
+		false,
+		false,
+		false,
+		false,
+		false
+	};
 };
